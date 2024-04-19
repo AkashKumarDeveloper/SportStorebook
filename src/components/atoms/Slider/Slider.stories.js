@@ -1,11 +1,13 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import SliderSizes from './Slider';
+import { ArgTypes } from '@storybook/blocks';
 
 export default {
-  title: 'Slider',
+  title: 'Atoms/Slider',
   component: SliderSizes,
+  argTypes:{
+    color:{control:'color'}
+  },
 };
 
 export const GreenSlider = () => <SliderSizes />;
-
