@@ -1,18 +1,32 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 
-export default function BasicTextFields({ backgroundColor }) {
+const DynamicInputField = ({ icon, placeholder, width, height, borderRadius }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const startAdornment = icon ? (
+    <InputAdornment position="start">
+      {icon}
+    </InputAdornment>
+  ) : null;
+
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { m: 1, width: "50ch", alignItems: "center" },
+    <TextField
+      variant="outlined"
+      placeholder={inputValue ? '' : placeholder}
+      style={{ width, height, borderRadius }}
+      InputProps={{
+        startAdornment: startAdornment,
       }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField style={backgroundColor && { backgroundColor }} />
-    </Box>
+      value={inputValue}
+      onChange={handleChange}
+    />
   );
-}
+};
+
+export default DynamicInputField;
