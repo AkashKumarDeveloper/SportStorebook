@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import DynamicInputField from './Inputfield.jsx';
@@ -12,7 +11,7 @@ export default {
   component: DynamicInputField,
   argTypes: {
     icon: { control: false }, 
-    type: { control: 'text' },
+    type: { control: 'select', options:['text','number']},
     placeholder: { control: 'text' },
     width: { control: 'text' },
     height: { control: 'text' },
