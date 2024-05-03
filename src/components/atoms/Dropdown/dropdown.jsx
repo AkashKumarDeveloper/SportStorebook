@@ -1,24 +1,34 @@
-import React from 'react';
-import { Select, MenuItem, InputLabel, FormControl } from "@mui/material";
- 
-const DropDown = () => {
-    return (
-        <FormControl sx={{ marginTop: 50 }}>
-            <InputLabel>Select</InputLabel>
-            <Select
-                sx={{
-                    width: 250,
-                    height: 50,
-                }}
-            >
-                <MenuItem value={1}>Red</MenuItem>
-                <MenuItem value={2}>Black</MenuItem>
-                <MenuItem value={3}>Blue</MenuItem>
-                <MenuItem value={4}>Green</MenuItem>
-                <MenuItem value={5}>Yellow</MenuItem>
-            </Select>
-        </FormControl>
-    );
-}
+import React, { useState } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
-export default DropDown;
+const DynamicDropdown = ({ options, onSelect, placeholder }) => {
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSelectedOption(value);
+    onSelect(value);
+  };
+
+  return (
+    <Select
+      value={selectedOption}
+      onChange={handleChange}
+      displayEmpty
+      inputProps={{ 'aria-label': 'Select an option' }}
+      MenuProps={{ style: { width: 'auto' } }}
+    >
+      <MenuItem value="" disabled>
+        {placeholder}
+      </MenuItem>
+      {options.map((option, index) => (
+        <MenuItem key={index} value={option}>
+          {option}
+        </MenuItem>
+      ))}
+    </Select>
+  );
+};
+
+export default DynamicDropdown;
