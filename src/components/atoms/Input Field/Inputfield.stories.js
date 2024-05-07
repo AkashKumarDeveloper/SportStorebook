@@ -1,5 +1,4 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
 import DynamicInputField from './Inputfield.jsx';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
