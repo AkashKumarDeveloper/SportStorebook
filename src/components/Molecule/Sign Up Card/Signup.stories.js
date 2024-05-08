@@ -2,7 +2,7 @@ import React from 'react';
 import InputCard from './Signup.jsx';
 
 export default {
-  title: 'Molecules/InputCard',
+  title: 'Molecule/InputCard',
   component: InputCard,
 }
 
