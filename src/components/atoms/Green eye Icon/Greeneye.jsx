@@ -14,7 +14,6 @@ const GreenEyeButton = ({ onClick }) => {
     <IconButton style={{ color: green[500] }} onClick={handleClick}>
       <RemoveRedEyeIcon />
     </IconButton>
-    
   );
 };
 
