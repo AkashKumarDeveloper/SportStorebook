@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-
 
 const DynamicInputField = ({
   icon,
@@ -12,13 +11,9 @@ const DynamicInputField = ({
   marginBottom,
   name,
   type = "text",
+  value,
+  onChange,
 }) => {
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
   const startAdornment = icon ? (
     <InputAdornment position="start">{icon}</InputAdornment>
   ) : null;
@@ -26,13 +21,13 @@ const DynamicInputField = ({
   return (
     <TextField
       variant="outlined"
-      placeholder={inputValue ? "" : placeholder}
+      placeholder={placeholder}
       style={{ width, height, borderRadius, marginBottom }}
       InputProps={{
         startAdornment: startAdornment,
       }}
-      value={inputValue}
-      onChange={handleChange}
+      value={value}
+      onChange={onChange}
       name={name}
       type={type}
     />

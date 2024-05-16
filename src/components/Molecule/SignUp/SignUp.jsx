@@ -10,12 +10,12 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonComponent from "../../atoms/Button/Button";
-import DynamicInputField from "../../atoms/Input Field/Inputfield"
+import DynamicInputField from "../../atoms/Input Field/Inputfield";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
-  phoneNumber: Yup.string().required("Phone Number is required"),
+  phoneNumber: Yup.number().required("Phone Number is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string().required("Password is required"),
 });
@@ -61,6 +61,14 @@ const useStyles = makeStyles((theme) => ({
 const Signup = () => {
   const classes = useStyles();
   const [submittedValues, setSubmittedValues] = useState(null);
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+  });
+
 
   return (
     <Card sx={{ borderRadius: "34px", width: "586px", top: "128px" }}>
@@ -86,11 +94,11 @@ const Signup = () => {
           }}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            console.log(values);
+            console.log("values", values);
             setSubmittedValues(values); // Store the submitted values in state
           }}
         >
-          {({ values, errors, touched, handleSubmit }) => (
+          {({ values, errors, touched, handleSubmit, handleChange }) => (
             <Form onSubmit={handleSubmit}>
               <DynamicInputField
                 icon={<PermIdentityOutlinedIcon />}
@@ -100,6 +108,8 @@ const Signup = () => {
                 marginBottom="25px"
                 borderRadius="7px"
                 name="firstName"
+                value={values.firstName}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="firstName"
@@ -114,6 +124,8 @@ const Signup = () => {
                 borderRadius="7px"
                 marginBottom="25px"
                 name="lastName"
+                value={values.lastName}
+                onChange={handleChange}
               />
               <ErrorMessage name="lastName" component="div" className="error" />
               <DynamicInputField
@@ -124,6 +136,8 @@ const Signup = () => {
                 borderRadius="7px"
                 marginBottom="25px"
                 name="phoneNumber"
+                value={values.phoneNumber}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="phoneNumber"
@@ -138,6 +152,8 @@ const Signup = () => {
                 borderRadius="7px"
                 marginBottom="25px"
                 name="email"
+                value={values.email}
+                onChange={handleChange}
               />
               <ErrorMessage name="email" component="div" className="error" />
               <DynamicInputField
@@ -149,6 +165,8 @@ const Signup = () => {
                 marginBottom="25px"
                 name="password"
                 type="password"
+                value={values.password}
+                onChange={handleChange}
               />
               <ErrorMessage name="password" component="div" className="error" />
               <ButtonComponent
@@ -174,12 +192,7 @@ const Signup = () => {
             Sign up with Google
           </Typography>
         </div>
-        {submittedValues && (
-          <div>
-            <h2>Submitted Values:</h2>
-            <pre>{JSON.stringify(submittedValues, null, 2)}</pre>
-          </div>
-        )}
+
       </CardContent>
     </Card>
   );
