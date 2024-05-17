@@ -5,7 +5,7 @@ import {
   soccerImage,
   baseBallImage,
   cricketImage,
-} from "../../../Assets/Imagesjs/Image";
+} from "../../../../Assets/Imagesjs/Image.js";
 
 export default {
   title: "Molecule/RadioButtonsWithImages",
