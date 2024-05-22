@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import {
+  Modal,
+  Box,
   Card,
   CardHeader,
   CardContent,
   Grid,
-  Box,
-  Button,
   Typography,
-  Modal,
+  Button,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import DoneIcon from "@mui/icons-material/Done";
-
 import soccerImage from "../../../../Assets/Images/sports-2.png";
-import baseBallImage from "../../../../Assets/Images/sports-3.png";
+import baseBallImage from "../../../../Assets/Images/basketball.png";
 import cricketImage from "../../../../Assets/Images/sports-1.png";
 
 const useStyles = makeStyles({
@@ -56,17 +54,20 @@ const useStyles = makeStyles({
 });
 
 const defaultOptions = [
-  { value: "FootBall", image: soccerImage },
-  { value: "Basket Ball", image: baseBallImage },
+  { value: "Football", image: soccerImage },
+  { value: "Baseball", image: baseBallImage },
   { value: "Cricket", image: cricketImage },
 ];
 
-const RadioButtonsWithImages = ({ options = defaultOptions }) => {
+const RadioButtonsWithImages = ({
+  options = defaultOptions,
+  selectedValue,
+  onSelect,
+}) => {
   const classes = useStyles();
-  const [selectedValue, setSelectedValue] = useState(options[0].value);
 
   const handleImageClick = (value) => {
-    setSelectedValue(value);
+    onSelect(value);
   };
 
   return (
@@ -77,13 +78,7 @@ const RadioButtonsWithImages = ({ options = defaultOptions }) => {
           Please select the sports you actively participate in.
         </Typography>
         <hr />
-        <Grid
-          container
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          spacing={2}
-        >
+        <Grid container spacing={2}>
           {options.map((option, index) => (
             <Grid item xs={4} key={index}>
               <Box
@@ -105,47 +100,49 @@ const RadioButtonsWithImages = ({ options = defaultOptions }) => {
             </Grid>
           ))}
         </Grid>
-        <hr />
-        <Button variant="contained" color="primary" fullWidth>
-          Save and Continue
-        </Button>
       </CardContent>
     </Card>
   );
 };
 
-RadioButtonsWithImages.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    })
-  ),
-};
-
-const SportsModal = () => {
+const SportsModal = ({ open, handleClose, handleContinue }) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+  const handleSelect = (value) => {
+    setSelectedValue(value);
   };
 
   return (
-    <>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        Open Sports Modal
-      </Button>
-      <Modal open={open} onClose={handleClose}>
-        <Box className={classes.modalContent}>
-          <RadioButtonsWithImages />
-        </Box>
-      </Modal>
-    </>
+    <Modal open={open} onClose={handleClose}>
+      <Box className={classes.modalContent}>
+        <RadioButtonsWithImages
+          selectedValue={selectedValue}
+          onSelect={handleSelect}
+        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "16px",
+          }}
+        >
+          <Button variant="contained" color="primary" onClick={handleClose}>
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              if (selectedValue) handleContinue();
+            }}
+            disabled={!selectedValue}
+          >
+            Continue
+          </Button>
+        </div>
+      </Box>
+    </Modal>
   );
 };
 

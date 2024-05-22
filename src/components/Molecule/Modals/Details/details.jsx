@@ -6,7 +6,7 @@ import {
   TextField,
   MenuItem,
 } from "@mui/material";
-import ButtonComponent from "../../../atoms/Button/Button"; // Adjust the path if necessary
+import ButtonComponent from "../../../atoms/Button/Button"; 
 
 const styles = {
   modalStyle: {
@@ -43,109 +43,97 @@ const styles = {
 const roles = ["Striker", "Midfielder", "Defender", "Goalkeeper"];
 const positions = ["Left Wing", "Right Wing", "Center", "Full Back"];
 
-const FootballDetailsModal = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const FootballDetailsModal = ({ open, handleClose,handleContinue }) => {
   const handleBack = () => {
     // Implement the back button functionality here
     console.log("Back button clicked");
   };
   const handleSaveContinue = () => {
-    // Implement the save and continue functionality here
+    handleContinue()
     console.log("Save & Continue button clicked");
   };
 
   return (
-    <div>
-      <ButtonComponent
-        label="Open Modal"
-        color="#1976d2"
-        labelColor="#fff"
-        onClick={handleOpen}
-      />
-      <Modal open={open} onClose={handleClose}>
-        <Box sx={styles.modalStyle}>
-          <div>
-            <Typography variant="h6" component="h2" gutterBottom>
-              Football / Soccer Details
-            </Typography>
-            <hr style={styles.hrStyle} />
-            <div>
-              <Typography>Primary Role</Typography>
-              <TextField
-                select
-                label="Primary Role"
-                sx={styles.formControl}
-                variant="outlined"
-              >
-                {roles.map((role) => (
-                  <MenuItem key={role} value={role}>
-                    {role}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-            <div>
-              <Typography>Other Positions</Typography>
-              <TextField
-                select
-                label="Other Positions"
-                sx={styles.formControl}
-                variant="outlined"
-              >
-                {positions.map((position) => (
-                  <MenuItem key={position} value={position}>
-                    {position}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-            <div>
-              <Typography>Primary Position</Typography>
-              <TextField
-                select
-                label="Primary Position"
-                sx={styles.formControl}
-                variant="outlined"
-              >
-                {positions.map((position) => (
-                  <MenuItem key={position} value={position}>
-                    {position}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-            <div>
-              <Typography>Profile Video Link</Typography>
-              <TextField
-                label="Profile Video Link"
-                variant="outlined"
-                sx={styles.formControl}
-              />
-            </div>
-          </div>
+    <Modal open={open} onClose={handleClose}>
+      <Box sx={styles.modalStyle}>
+        <div>
+          <Typography variant="h6" component="h2" gutterBottom>
+            Football / Soccer Details
+          </Typography>
           <hr style={styles.hrStyle} />
-          <Box sx={styles.buttonContainer}>
-            <ButtonComponent
-              label="Back"
-              size="large"
-              color="#011A1E"
-              labelColor="#fff"
-              onClick={handleBack}
+          <div>
+            <Typography>Primary Role</Typography>
+            <TextField
+              select
+              label="Primary Role"
+              sx={styles.formControl}
+              variant="outlined"
+            >
+              {roles.map((role) => (
+                <MenuItem key={role} value={role}>
+                  {role}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+          <div>
+            <Typography>Other Positions</Typography>
+            <TextField
+              select
+              label="Other Positions"
+              sx={styles.formControl}
+              variant="outlined"
+            >
+              {positions.map((position) => (
+                <MenuItem key={position} value={position}>
+                  {position}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+          <div>
+            <Typography>Primary Position</Typography>
+            <TextField
+              select
+              label="Primary Position"
+              sx={styles.formControl}
+              variant="outlined"
+            >
+              {positions.map((position) => (
+                <MenuItem key={position} value={position}>
+                  {position}
+                </MenuItem>
+              ))}
+            </TextField>
+          </div>
+          <div>
+            <Typography>Profile Video Link</Typography>
+            <TextField
+              label="Profile Video Link"
+              variant="outlined"
+              sx={styles.formControl}
             />
-            <ButtonComponent
-              label="Save & Continue"
-              size="large"
-              color="#01A800"
-              labelColor="#fff"
-              onClick={handleSaveContinue}
-            />
-          </Box>
+          </div>
+        </div>
+        <hr style={styles.hrStyle} />
+        <Box sx={styles.buttonContainer}>
+          <ButtonComponent
+            label="Back"
+            size="large"
+            color="#011A1E"
+            labelColor="#fff"
+            onClick={handleBack}
+          />
+          <ButtonComponent
+            label="Save & Continue"
+            size="large"
+            color="#01A800"
+            labelColor="#fff"
+            onClick={handleSaveContinue}
+          />
         </Box>
-      </Modal>
-    </div>
+      </Box>
+    </Modal>
   );
 };
 
