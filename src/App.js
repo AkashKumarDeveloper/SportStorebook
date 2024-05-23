@@ -8,9 +8,14 @@ import ParentInformationCard from "./components/Molecule/Modals/ParentInformatio
 import AgreementDetailCard from "./components/Molecule/Modals/Agreement/Agreement.jsx";
 import RegistrationSuccessCard from "./components/Molecule/Modals/SucessfullRegistraion/Sucessregistration.jsx";
 import SideNavbar from "./components/Pages/Page 2/index.jsx";
+import PlayerTable from "./components/atoms/Table/table.jsx";
+import CoachDetails from "./components/atoms/Coach/index.jsx";
+import SwipeableTextMobileStepper from "./components/atoms/Caraousel/Caraousel.jsx";
+import AboutTeamCard from "./components/atoms/AboutTeam/aboutteam.jsx";
+import PersonalInfoCard from "./components/atoms/playerInformation/playerinformation.jsx";
 
 function App() {
-  return <SideNavbar/>
+  return <PersonalInfoCard/>
 }
 
 export default App;
