@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Card from "@mui/material/Card";
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Signup = () => {
+const Signup = ({ onSignupClick }) => {
   const classes = useStyles();
   const [submittedValues, setSubmittedValues] = useState(null);
   const [formValues, setFormValues] = useState({
@@ -68,7 +68,6 @@ const Signup = () => {
     email: "",
     password: "",
   });
-
 
   return (
     <Card sx={{ borderRadius: "34px", width: "586px", top: "128px" }}>
@@ -85,17 +84,12 @@ const Signup = () => {
           Player Sign Up
         </Typography>
         <Formik
-          initialValues={{
-            firstName: "",
-            lastName: "",
-            phoneNumber: "",
-            email: "",
-            password: "",
-          }}
+          initialValues={formValues}
           validationSchema={validationSchema}
           onSubmit={(values) => {
             console.log("values", values);
             setSubmittedValues(values); // Store the submitted values in state
+            onSignupClick(); // Open the modal
           }}
         >
           {({ values, errors, touched, handleSubmit, handleChange }) => (
@@ -192,7 +186,6 @@ const Signup = () => {
             Sign up with Google
           </Typography>
         </div>
-
       </CardContent>
     </Card>
   );

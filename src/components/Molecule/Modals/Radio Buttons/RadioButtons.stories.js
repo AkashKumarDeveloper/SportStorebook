@@ -1,11 +1,11 @@
 // RadioButtonsWithImages.stories.js
-import React , {useState} from "react";
+import React, { useState } from "react";
 import RadioButtonsWithImages from "./RadioButtons.jsx";
 import {
   soccerImage,
   baseBallImage,
   cricketImage,
-} from "../../../Assets/Imagesjs/Image";
+} from "../../../../Assets/Imagesjs/Image.js";
 
 export default {
   title: "Molecule/RadioButtonsWithImages",
@@ -13,15 +13,22 @@ export default {
 };
 
 const Template = (args) => {
-    const [selectedValue, setSelectedValue] = useState(args.selectedValue);
-  
-    const handleChange = (value) => {
-      setSelectedValue(value);
-    };
-  
-    return <RadioButtonsWithImages {...args} selectedValue={selectedValue} onChange={handleChange} />;
+  const [selectedValue, setSelectedValue] = useState(args.selectedValue);
+
+  const handleChange = (value) => {
+    setSelectedValue(value);
+  };
+  console.log("...args>>>>", args);
+
+  return (
+    <RadioButtonsWithImages
+      {...args}
+      selectedValue={selectedValue}
+      onChange={handleChange}
+    />
+  );
 };
-  
+
 export const Default = Template.bind({});
 Default.args = {
   options: [
