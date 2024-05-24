@@ -1,66 +1,106 @@
-import React from 'react';
-import { Card, CardContent, Typography, Box, LinearProgress, CircularProgress } from '@mui/material';
-import { styled } from '@mui/system';
+import React from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Box,
+  LinearProgress,
+  CircularProgress,
+  Alert,
+  AlertTitle,
+} from "@mui/material";
+import { styled } from "@mui/system";
+import WarningIcon from "@mui/icons-material/Warning";
 
 const CardContainer = styled(Card)({
-  width: '275px',
-  height: '383px',
-  padding: '16px',
-  boxSizing: 'border-box',
+  width: "340px",
+  height: "480px",
+  padding: "7px",
+  boxSizing: "border-box",
 });
 
 const ProgressBox = styled(Box)({
-  position: 'relative',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  position: "relative",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: "16px",
 });
 
 const CircularProgressWithLabel = (props) => (
   <ProgressBox>
-    <CircularProgress variant="determinate" {...props} />
+    <CircularProgress
+      variant="determinate"
+      {...props}
+      sx={{
+        width: "148px !important",
+        height: "99px !important",
+        color: "#00A701",
+      }}
+    />
     <Box
       sx={{
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        position: 'absolute',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        top: "50%",
+        left: "50%",
+        transform: "translate(-14%, -65%)",
+        position: "absolute",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <Typography variant="caption" component="div" color="text.secondary">
+      <Typography variant="h4" component="div" sx={{ color: "#00A701" }}>
         {`${Math.round(props.value)}%`}
       </Typography>
     </Box>
   </ProgressBox>
 );
 
-const CompleteProfileLink = styled('div')({
-  color: 'red',
-  cursor: 'pointer',
-  textAlign: 'right',
-  marginBottom: '8px',
+const CompleteProfileLink = styled(Box)({
+  cursor: "pointer",
+  textAlign: "right",
+  marginBottom: "8px",
 });
 
 const PersonalInfoCard = () => {
   const handleProfileClick = () => {
     // logic to navigate to another page
-    console.log('Navigating to complete profile page...');
+    console.log("Navigating to complete profile page...");
   };
 
   return (
     <CardContainer>
-      <CompleteProfileLink onClick={handleProfileClick}>
-        Please complete your profile
-      </CompleteProfileLink>
       <CardContent>
-        <LinearProgress variant="determinate" value={40} />
-        <Typography variant="body2" color="textSecondary" style={{ marginTop: '8px' }}>
+        <Typography variant="h6" gutterBottom>
+          Personal Information
+        </Typography>
+        <CompleteProfileLink onClick={handleProfileClick}>
+          <Alert
+            severity="warning"
+            icon={<WarningIcon />}
+            style={{ backgroundColor: "#fffff" }}
+          >
+            <AlertTitle>Please complete your profile</AlertTitle>
+          </Alert>
+        </CompleteProfileLink>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          style={{ marginTop: "8px", color: "#00A701" }}
+        >
           Completed Profile 40%
         </Typography>
+        <LinearProgress
+          variant="determinate"
+          value={40}
+          style={{ height: "10px", borderRadius: "18px" }}
+          sx={{
+            backgroundColor: "white",
+            "& .MuiLinearProgress-bar": {
+              backgroundColor: "#00A701",
+            },
+          }}
+        />
         <Box my={2}>
           <Typography variant="body1">Name: Male</Typography>
           <Typography variant="body1">Email: adamsmith@gmail.com</Typography>
@@ -69,7 +109,11 @@ const PersonalInfoCard = () => {
           <Typography variant="body1">Last Assessment: 15-Feb-2024</Typography>
         </Box>
         <CircularProgressWithLabel value={60} />
-        <Typography variant="body2" color="textSecondary">
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          sx={{ textAlign: "center", marginTop: "-40px", marginRight: "103px" }}
+        >
           Overall Rank
         </Typography>
       </CardContent>
