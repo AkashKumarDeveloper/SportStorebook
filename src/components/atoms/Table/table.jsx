@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Card, CardHeader, CardContent, IconButton, TablePagination } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, Card, CardHeader, CardContent, IconButton, TablePagination, Box } from '@mui/material';
 import { SaveAlt } from '@mui/icons-material';
 import players from '../../../Assets/palyers/players.json'; // Importing the JSON file
 
@@ -29,34 +29,36 @@ const PlayerTable = () => {
         }
       />
       <CardContent>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Sr. No.</TableCell>
-                <TableCell>Player Name</TableCell>
-                <TableCell>Rank</TableCell>
-                <TableCell>Gender</TableCell>
-                <TableCell>Age</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {players.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((player, index) => (
-                <TableRow key={player.id}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{player.player_name}</TableCell>
-                  <TableCell>
-                    <div style={{ backgroundColor: '#F29423', borderRadius: '20px', padding: '5px 10px', color: 'white' }}>
-                      {player.Rank}
-                    </div>
-                  </TableCell>
-                  <TableCell>{player.Gender}</TableCell>
-                  <TableCell>{player.Age}</TableCell>
+        <Box border={1} borderColor="grey.400" borderRadius={4} padding={1}>
+          <TableContainer component={Paper}>
+            <Table style={{borderCollapse: 'collapse'}}>
+              <TableHead>
+                <TableRow>
+                  <TableCell><b style={{ color: 'black' }}>Sr. No.</b></TableCell>
+                  <TableCell><b style={{ color: 'black' }}>Player Name</b></TableCell>
+                  <TableCell><b style={{ color: 'black' }}>Rank</b></TableCell>
+                  <TableCell><b style={{ color: 'black' }}>Gender</b></TableCell>
+                  <TableCell><b style={{ color: 'black' }}>Age</b></TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {players.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((player, index) => (
+                  <TableRow key={player.id} style={{border: 'none'}}>
+                    <TableCell style={{border: 'none'}}>{index + 1}</TableCell>
+                    <TableCell style={{border: 'none'}}>{player.player_name}</TableCell>
+                    <TableCell style={{border: 'none', textAlign: 'center'}}>
+                      <div style={{ backgroundColor: '#F29423', borderRadius: '20px', padding: '2px 0px', color: 'white' }}>
+                        {player.Rank}
+                      </div>
+                    </TableCell>
+                    <TableCell style={{border: 'none'}}>{player.Gender}</TableCell>
+                    <TableCell style={{border: 'none'}}>{player.Age}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"

@@ -15,7 +15,7 @@ import AboutTeamCard from "./components/atoms/AboutTeam/aboutteam.jsx";
 import PersonalInfoCard from "./components/atoms/playerInformation/playerinformation.jsx";
 
 function App() {
-  return <PersonalInfoCard/>
+  return <PlayerTable/>
 }
 
 export default App;
