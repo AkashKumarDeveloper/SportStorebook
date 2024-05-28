@@ -1,0 +1,16 @@
+.custom-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #cfcfcf; /* Disabled color */
+  }
+  
+  .slick-dots li.slick-active .custom-dot {
+    background-color: green; /* Active color */
+  }
+  
+  .slick-dots li button:before {
+    font-size: 12px; /* Enlarge dots */
+    color: green; /* Color for dots */
+  }
+  

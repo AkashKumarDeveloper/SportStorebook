@@ -6,7 +6,7 @@ import players from '../../../Assets/palyers/players.json'; // Importing the JSO
 const PlayerTable = () => {
   // State for pagination
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   // Event handlers for pagination
   const handleChangePage = (event, newPage) => {
@@ -47,7 +47,7 @@ const PlayerTable = () => {
                     <TableCell style={{border: 'none'}}>{index + 1}</TableCell>
                     <TableCell style={{border: 'none'}}>{player.player_name}</TableCell>
                     <TableCell style={{border: 'none', textAlign: 'center'}}>
-                      <div style={{ backgroundColor: '#F29423', borderRadius: '20px', padding: '2px 0px', color: 'white' }}>
+                    <div style={{ backgroundColor: '#F29423', borderRadius: '20px', padding: '2px 10px', color: 'white', display: 'inline-block', width: '25px', textAlign: 'center' }}>
                         {player.Rank}
                       </div>
                     </TableCell>
@@ -60,7 +60,7 @@ const PlayerTable = () => {
           </TableContainer>
         </Box>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10, 15, 25]}
           component="div"
           count={players.length}
           rowsPerPage={rowsPerPage}
