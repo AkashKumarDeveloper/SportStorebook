@@ -108,14 +108,20 @@ const PersonalInfoCard = () => {
           <Typography variant="body1">Sports Name: Football</Typography>
           <Typography variant="body1">Last Assessment: 15-Feb-2024</Typography>
         </Box>
-        <CircularProgressWithLabel value={60} />
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          sx={{ textAlign: "center", marginTop: "-40px", marginRight: "103px" }}
-        >
-          Overall Rank
-        </Typography>
+        <Box>
+          <CircularProgressWithLabel value={60} />
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            sx={{
+              textAlign: "center",
+              marginTop: "-40px",
+              marginRight: "103px",
+            }}
+          >
+            Overall Rank
+          </Typography>
+        </Box>
       </CardContent>
     </CardContainer>
   );
