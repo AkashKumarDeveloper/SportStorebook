@@ -1,0 +1,14 @@
+{
+    "name": "John Doe",
+    "handEyeCoordinationScore": 85,
+    "totalGood": 10,
+    "age": 23,
+    "dob": "29-Jun-1998",
+    "gender": "Male",
+    "playerId": "JHADJ6555",
+    "redCardCount": 1,
+    "yellowCardCount": 3,
+    "totalMatchesPlayed": 25,
+    "suspensions": 1,
+    "overallRank": 60
+}

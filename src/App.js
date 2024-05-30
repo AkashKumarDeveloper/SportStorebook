@@ -19,10 +19,23 @@ import Dashboardpage from "./components/Molecule/DashboardPage/index.jsx";
 import SportsProfile from "./components/atoms/Sportsprofile/sportsprofile.jsx";
 import AssessmentTable from "./components/atoms/AssesmentTable/Assesment.jsx";
 import PastAssessments from "./components/atoms/PastAssesments/pastAssesments.jsx";
+import Player from "./components/atoms/playerStrength&weakness/index.jsx";
+import PlayerCard from "./components/atoms/PlayerSkillAssesment/index.jsx";
+import players from "../src/Assets/palyers/players.json";
+import OverallRankCard from "./components/atoms/Overall Rank/index.jsx";
+import CustomCard from "./components/atoms/CustomCardLine/index.jsx";
+import CustomCardWithRadar from "./components/atoms/radarchartCardLine/index.jsx";
+import CustomCardWithPolar from "./components/atoms/IntellectualCard/index.jsx";
+import Appy from "./components/atoms/ComprehensiveCard/index.jsx";
+import Apply from "./components/atoms/Concept map card/index.jsx";
+import AssesmentPage from "./components/Molecule/AssesmentPage/index.jsx";
+import ReportsPage from "./components/Molecule/ReportsPage/index.jsx";
 
 function App() {
   return (
-    <PastAssessments /> 
+    <div>
+      <ReportsPage />
+    </div>
   );
 }
 
