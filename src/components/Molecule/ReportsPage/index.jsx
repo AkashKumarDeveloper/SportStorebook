@@ -1,12 +1,12 @@
 // src/App.js
-import React from 'react';
-import { Box, Grid } from '@mui/material';
-import PlayerCard from '../../atoms/PlayerSkillAssesment/index';
-import OverallRankCard from '../../atoms/Overall Rank/index';
-import CustomCard from '../../atoms/';
-import CustomCardWithRadar from './CustomCardWithRadar';
-import CustomCardWithPolar from './CustomCardWithPolar';
-import Appy from './Appy';
+import React from "react";
+import { Box, Grid } from "@mui/material";
+import PlayerCard from "../../atoms/PlayerSkillAssesment/index";
+import OverallRankCard from "../../atoms/Overall Rank/index";
+import CustomCard from "../../atoms/CustomCardLine/index";
+import CustomCardWithRadar from "../../atoms/radarchartCardLine/index";
+import CustomCardWithPolar from "../../atoms/IntellectualCard/index";
+import Appy from "../../atoms/ComprehensiveCard/index";
 
 const ReportsPage = () => {
   return (
