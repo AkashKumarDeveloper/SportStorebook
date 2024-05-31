@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
+import * as React from 'react';
+import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 
-export default function GaugeDesign({ width, height, value }) {
+const GaugeDesign = ({ width, height, value }) => {
   return (
     <Gauge
       width={width}
@@ -11,15 +11,19 @@ export default function GaugeDesign({ width, height, value }) {
       sx={(theme) => ({
         [`& .${gaugeClasses.valueText}`]: {
           fontSize: 40,
+          fill: '#00A701', // Text color
         },
         [`& .${gaugeClasses.valueArc}`]: {
-          fill: "#52b202",
+          fill: '#00A701', // Progress bar color
         },
         [`& .${gaugeClasses.referenceArc}`]: {
-          fill: "#ECF5ED",
+          fill: '#ECF5ED',
         },
       })}
+      valueFormatter={(value) => `${value}%`} // Format the value as percentage
+      valueTextProps={{children:`${value}%`}}
     />
   );
-}
-  
+};
+
+export default GaugeDesign;
