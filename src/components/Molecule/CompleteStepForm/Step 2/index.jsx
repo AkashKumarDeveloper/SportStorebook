@@ -1,12 +1,15 @@
-import React from 'react';
-import { TextField, Button, Box, Typography } from '@mui/material';
+import React from "react";
+import { TextField, Button, Box, Typography, MenuItem } from "@mui/material";
 
 const Step2 = ({ formData, handleChange, nextStep }) => {
   return (
     <Box>
-      <Typography variant="h5" gutterBottom>Sport Specific Football/Soccer Details</Typography>
+      <Typography variant="h5" gutterBottom>
+        Sport Specific Football/Soccer Details
+      </Typography>
       <Box display="flex" justifyContent="space-between">
         <TextField
+          select
           label="Primary Role"
           variant="outlined"
           name="primaryRole"
@@ -14,8 +17,12 @@ const Step2 = ({ formData, handleChange, nextStep }) => {
           onChange={handleChange}
           margin="normal"
           fullWidth
-        />
+        >
+          <MenuItem value="Role1">Defender</MenuItem>
+          <MenuItem value="Role2">Striker</MenuItem>
+        </TextField>
         <TextField
+          select
           label="Secondary Role"
           variant="outlined"
           name="secondaryRole"
@@ -23,8 +30,12 @@ const Step2 = ({ formData, handleChange, nextStep }) => {
           onChange={handleChange}
           margin="normal"
           fullWidth
-        />
+        >
+          <MenuItem value="Role1">Defender</MenuItem>
+          <MenuItem value="Role2">Striker</MenuItem>
+        </TextField>
         <TextField
+          select
           label="Primary Position"
           variant="outlined"
           name="primaryPosition"
@@ -32,10 +43,14 @@ const Step2 = ({ formData, handleChange, nextStep }) => {
           onChange={handleChange}
           margin="normal"
           fullWidth
-        />
+        >
+          <MenuItem value="Position1">Center Back</MenuItem>
+          <MenuItem value="Position2">Center Right</MenuItem>
+        </TextField>
       </Box>
       <Box display="flex" justifyContent="space-between">
         <TextField
+          select
           label="Secondary Position"
           variant="outlined"
           name="secondaryPosition"
@@ -43,7 +58,10 @@ const Step2 = ({ formData, handleChange, nextStep }) => {
           onChange={handleChange}
           margin="normal"
           fullWidth
-        />
+        >
+          <MenuItem value="Position1">Back Left</MenuItem>
+          <MenuItem value="Position2">Midfield</MenuItem>
+        </TextField>
         <TextField
           label="Profile Video Link"
           variant="outlined"
@@ -53,18 +71,15 @@ const Step2 = ({ formData, handleChange, nextStep }) => {
           margin="normal"
           fullWidth
         />
-        <input
-          accept="video/*"
-          style={{ display: 'none' }}
-          id="raised-button-file"
-          type="file"
-          onChange={(e) => handleChange({ target: { name: 'profileVideo', value: e.target.files[0] } })}
+        <TextField
+          label="Choose File "
+          variant="outlined"
+          name="profileVideoLink"
+          value={formData.profileVideoLink}
+          onChange={handleChange}
+          margin="normal"
+          fullWidth
         />
-        <label htmlFor="raised-button-file">
-          <Button variant="contained" component="span">
-            Upload Video
-          </Button>
-        </label>
       </Box>
       <Box display="flex" justifyContent="space-between" mt={2}>
         <Button variant="contained" color="primary" onClick={nextStep}>
