@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import { SaveAlt } from '@mui/icons-material';
 import players from '../../../Assets/palyers/players.json'; // Importing the JSON file
 
-const PlayerTable = () => {
+const  PlayerTable = () => {
   // State for pagination
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
