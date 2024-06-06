@@ -8,6 +8,7 @@ const TeamCardContainer = styled(Card)({
   padding: '4px',
   boxSizing: 'border-box',
   textAlign: 'center',
+  marginTop:"16px"
 });
 
 const TeamLogo = styled('img')({
