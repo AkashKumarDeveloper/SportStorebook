@@ -8,7 +8,7 @@ import AboutTeamCard from "../../atoms/AboutTeam/aboutteam";
 
 const Dashboardpage = () => {
   return (
-    <Box sx={{ flexGrow: 1, padding: 2 }}>
+    <Box sx={{ width: "80vw", marginLeft: 30, flexGrow: 1, padding: 2 }}>
       <Grid container spacing={2} md={12}>
         <Grid item xs={12} md={8}>
           <CarouselComponent />

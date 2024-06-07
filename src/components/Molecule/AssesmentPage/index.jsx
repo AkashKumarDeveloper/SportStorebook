@@ -7,7 +7,7 @@ import SportsProfile from "../../atoms/Sportsprofile/sportsprofile";
 
 const AssesmentPage = () => {
   return (
-    <Box p={2}>
+    <Box sx={{ width: "80vw", marginLeft: 30 }} p={2}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={8}>
           <Card>
