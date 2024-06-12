@@ -14,16 +14,21 @@ import DoneIcon from "@mui/icons-material/Done";
 import soccerImage from "../../../../Assets/Images/sports-2.png";
 import baseBallImage from "../../../../Assets/Images/basketball.png";
 import cricketImage from "../../../../Assets/Images/sports-1.png";
+import ButtonComponent from "../../../atoms/Button/Button";
 
 const useStyles = makeStyles({
   imageContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     border: "2px solid #ccc",
     borderRadius: "8px",
     padding: "8px",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "16px",
     textAlign: "center",
+    height: "100%",
   },
   selectedImage: {
     border: "2px solid green",
@@ -35,11 +40,10 @@ const useStyles = makeStyles({
     color: "green",
   },
   image: {
-    width: "100px",
-    height: "auto",
+    height: "100%",
     objectFit: "contain",
   },
-  modalContent: {
+  modalContent: { 
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -50,6 +54,15 @@ const useStyles = makeStyles({
     borderRadius: "8px",
     boxShadow: 24,
     padding: 16,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "end",
+    marginTop: "auto",
+    gap: "10px",
   },
 });
 
@@ -105,7 +118,7 @@ const RadioButtonsWithImages = ({
   );
 };
 
-const SportsModal = ({ open, handleClose, handleContinue }) => {
+const SportsModal = ({ open, handleClose, handleBack, handleContinue }) => {
   const classes = useStyles();
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -114,33 +127,41 @@ const SportsModal = ({ open, handleClose, handleContinue }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        alignItems: "center",
+      }}
+    >
       <Box className={classes.modalContent}>
         <RadioButtonsWithImages
           selectedValue={selectedValue}
           onSelect={handleSelect}
         />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: "16px",
-          }}
-        >
-          <Button variant="contained" color="primary" onClick={handleClose}>
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
+
+        <Box sx={classes.buttonContainer}>
+          <ButtonComponent
+            label="Back"
+            size="large"
+            color="#011A1E"
+            labelColor="#fff"
+            onClick={handleBack}
+          />
+          <ButtonComponent
+            label="Save"
+            size="large"
+            color="#01A800"
+            labelColor="#fff"
             onClick={() => {
               if (selectedValue) handleContinue();
             }}
             disabled={!selectedValue}
-          >
-            Continue
-          </Button>
-        </div>
+          />
+        </Box>
       </Box>
     </Modal>
   );

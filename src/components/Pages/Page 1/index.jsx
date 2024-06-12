@@ -73,6 +73,7 @@ const MyComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
+
   const handleNext = () => setStep((prevStep) => prevStep + 1);
   const handleBack = () => setStep((prevStep) => prevStep - 1);
   useEffect(() => {
@@ -90,7 +91,7 @@ const MyComponent = () => {
 
   const handleSuccessClose = () => {
     setIsModalOpen(false);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (
@@ -164,7 +165,7 @@ const MyComponent = () => {
           {step === 5 && (
             <ParentInformationCardSupplemental
               open={true}
-              handleClose={handleBack}
+              handleBack={handleBack}
               handleContinue={handleNext}
             />
           )}
@@ -179,7 +180,7 @@ const MyComponent = () => {
           {step === 7 && (
             <RegistrationSuccessModal
               open={true}
-              handleClose={handleSuccessClose}
+              handleSuccessClose={handleSuccessClose}
             />
           )}
         </>

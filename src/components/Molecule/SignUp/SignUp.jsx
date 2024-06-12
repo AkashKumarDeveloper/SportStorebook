@@ -1,5 +1,5 @@
-import React,{useState} from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState } from "react";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -11,6 +11,10 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonComponent from "../../atoms/Button/Button";
 import DynamicInputField from "../../atoms/Input Field/Inputfield";
+import { useGoogleLogin } from "@react-oauth/google";
+import { width } from "@material-ui/system";
+import GreenEyeButton from "../../atoms/Green eye Icon/Greeneye";
+import PasswordEyeButton from "../../atoms/passwordicon";
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
@@ -56,6 +60,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginTop: "25px",
   },
+  error: {
+    color: "red",
+    fontSize: "0.875rem",
+    marginTop: "0.25rem",
+  },
 }));
 
 const Signup = ({ onSignupClick }) => {
@@ -68,6 +77,19 @@ const Signup = ({ onSignupClick }) => {
     email: "",
     password: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const loginWithGooglehandler = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onError: (error) => {
+      console.log("Login Failed ", error);
+    },
+  });
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <Card sx={{ borderRadius: "34px", width: "586px", top: "128px" }}>
@@ -88,81 +110,104 @@ const Signup = ({ onSignupClick }) => {
           validationSchema={validationSchema}
           onSubmit={(values) => {
             console.log("values", values);
-            setSubmittedValues(values); // Store the submitted values in state
-            onSignupClick(); // Open the modal
+            setSubmittedValues(values);
+            onSignupClick();
           }}
         >
-          {({ values, errors, touched, handleSubmit, handleChange }) => (
-            <Form onSubmit={handleSubmit}>
-              <DynamicInputField
-                icon={<PermIdentityOutlinedIcon />}
-                placeholder="Player First Name"
-                width="100%"
-                height="50px"
-                marginBottom="25px"
-                borderRadius="7px"
-                name="firstName"
-                value={values.firstName}
-                onChange={handleChange}
-              />
-              <ErrorMessage
-                name="firstName"
-                component="div"
-                className="error"
-              />
-              <DynamicInputField
-                icon={<PermIdentityOutlinedIcon />}
-                placeholder="Player Last Name"
-                width="100%"
-                height="50px"
-                borderRadius="7px"
-                marginBottom="25px"
-                name="lastName"
-                value={values.lastName}
-                onChange={handleChange}
-              />
-              <ErrorMessage name="lastName" component="div" className="error" />
-              <DynamicInputField
-                icon={<PhoneOutlinedIcon />}
-                placeholder="Phone Number"
-                width="100%"
-                height="50px"
-                borderRadius="7px"
-                marginBottom="25px"
-                name="phoneNumber"
-                value={values.phoneNumber}
-                onChange={handleChange}
-              />
-              <ErrorMessage
-                name="phoneNumber"
-                component="div"
-                className="error"
-              />
-              <DynamicInputField
-                icon={<AlternateEmailOutlinedIcon />}
-                placeholder="Player Email"
-                width="100%"
-                height="50px"
-                borderRadius="7px"
-                marginBottom="25px"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-              />
-              <ErrorMessage name="email" component="div" className="error" />
-              <DynamicInputField
-                icon={<LockOutlinedIcon />}
-                placeholder="Password"
-                width="100%"
-                height="50px"
-                borderRadius="7px"
-                marginBottom="25px"
-                name="password"
-                type="password"
-                value={values.password}
-                onChange={handleChange}
-              />
-              <ErrorMessage name="password" component="div" className="error" />
+          {({ values, handleSubmit, handleChange }) => (
+            <Form onSubmit={handleSubmit} style={{ width: "100%" }}>
+              <div style={{ marginBottom: "25px" }}>
+                <DynamicInputField
+                  icon={<PermIdentityOutlinedIcon />}
+                  placeholder="Player First Name"
+                  height="50px"
+                  width="100%"
+                  borderRadius="7px"
+                  name="firstName"
+                  value={values.firstName}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="firstName"
+                  component="div"
+                  className={classes.error}
+                />
+              </div>
+              <div style={{ marginBottom: "25px" }}>
+                <DynamicInputField
+                  icon={<PermIdentityOutlinedIcon />}
+                  placeholder="Player Last Name"
+                  width="100%"
+                  height="50px"
+                  borderRadius="7px"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="lastName"
+                  component="div"
+                  className={classes.error}
+                />
+              </div>
+              <div style={{ marginBottom: "25px" }}>
+                <DynamicInputField
+                  icon={<PhoneOutlinedIcon />}
+                  placeholder="Phone Number"
+                  width="100%"
+                  height="50px"
+                  borderRadius="7px"
+                  name="phoneNumber"
+                  value={values.phoneNumber}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="phoneNumber"
+                  component="div"
+                  className={classes.error}
+                />
+              </div>
+              <div style={{ marginBottom: "25px" }}>
+                <DynamicInputField
+                  icon={<AlternateEmailOutlinedIcon />}
+                  placeholder="Player Email"
+                  width="100%"
+                  height="50px"
+                  borderRadius="7px"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className={classes.error}
+                />
+              </div>
+              <div style={{ marginBottom: "25px" }}>
+                <DynamicInputField
+                  icon={<LockOutlinedIcon />}
+                  placeholder="Password"
+                  width="100%"
+                  height="50px"
+                  borderRadius="7px"
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  value={values.password}
+                  onChange={handleChange}
+                  endIcon={
+                    <PasswordEyeButton
+                      onClick={togglePasswordVisibility}
+                      isPasswordVisible={showPassword}
+                    />
+                  }
+                />
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className={classes.error}
+                />
+              </div>
               <ButtonComponent
                 type="submit"
                 width="100%"
@@ -176,7 +221,10 @@ const Signup = ({ onSignupClick }) => {
           )}
         </Formik>
         <hr className={classes.horizontalLine} />
-        <div className={classes.googleSignup}>
+        <button
+          className={classes.googleSignup}
+          onClick={loginWithGooglehandler}
+        >
           <img
             src={require("../../../Assets/Images/gmail.png")}
             alt="Gmail"
@@ -185,7 +233,7 @@ const Signup = ({ onSignupClick }) => {
           <Typography variant="body1" style={{ color: "#3B474A" }}>
             Sign up with Google
           </Typography>
-        </div>
+        </button>
       </CardContent>
     </Card>
   );

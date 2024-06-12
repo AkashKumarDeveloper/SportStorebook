@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   Button,
@@ -16,22 +16,30 @@ import {
   Divider,
   FormControl,
   Modal,
-} from '@mui/material';
-import UploadImage from '../../../../Assets/Images/1.png';
+} from "@mui/material";
+import UploadImage from "../../../../Assets/Images/1.png";
+import ButtonComponent from "../../../atoms/Button/Button";
 
 const modalStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 800,
-  bgcolor: 'background.paper',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 700,
+  height: 505,
+  bgcolor: "background.paper",
   boxShadow: 24,
   p: 4,
   borderRadius: 2,
+  overflow: "overlay",
 };
 
-const PersonalDetailsCard = ({ open, handleClose, handleBack, handleContinue }) => {
+const PersonalDetailsCard = ({
+  open,
+  handleClose,
+  handleBack,
+  handleContinue,
+}) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle}>
@@ -42,9 +50,9 @@ const PersonalDetailsCard = ({ open, handleClose, handleBack, handleContinue }) 
           <Divider />
           <Box
             sx={{
-              border: '2px dashed grey',
+              border: "2px dashed grey",
               borderRadius: 1,
-              textAlign: 'center',
+              textAlign: "center",
               p: 2,
               mt: 2,
               mb: 4,
@@ -101,46 +109,55 @@ const PersonalDetailsCard = ({ open, handleClose, handleBack, handleContinue }) 
               <InputLabel shrink>Gender</InputLabel>
               <Box
                 sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                   mb: 2,
                 }}
               >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    border: '1px solid grey',
-                    borderRadius: 1,
-                    p: 1,
-                    flexGrow: 1,
-                    mr: 1,
-                  }}
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="row-radio-buttons-group"
+                  row
+                  // value={value}
+                  // onChange={handleChange}
                 >
-                  <Typography variant="body1" sx={{ mr: 1 }}>Male</Typography>
-                  <Radio value="male" />
-                </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    border: '1px solid grey',
-                    borderRadius: 1,
-                    p: 1,
-                    flexGrow: 1,
-                    ml: 1,
-                  }}
-                >
-                  <Typography variant="body1" sx={{ mr: 1 }}>Female</Typography>
-                  <Radio value="female" />
-                </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      border: "1px solid grey",
+                      borderRadius: 1,
+                      p: 1,
+                      flexGrow: 1,
+                      mr: 1,
+                    }}
+                  >
+                    <Typography variant="body1" sx={{ mr: 1 }}>
+                      Male
+                    </Typography>
+                    <Radio value="male" name="gender" />
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      border: "1px solid grey",
+                      borderRadius: 1,
+                      p: 1,
+                      flexGrow: 1,
+                      ml: 1,
+                    }}
+                  >
+                    <Typography variant="body1" sx={{ mr: 1 }}>
+                      Female
+                    </Typography>
+                    <Radio value="female" name="gender" />
+                  </Box>
+                </RadioGroup>
               </Box>
               <InputLabel shrink>Age</InputLabel>
-              <TextField
-                type="number"
-                fullWidth
-              />
+              <TextField type="number" fullWidth />
               <InputLabel shrink>Weight</InputLabel>
               <FormControl fullWidth>
                 <Select>
@@ -158,27 +175,36 @@ const PersonalDetailsCard = ({ open, handleClose, handleBack, handleContinue }) 
                 </Select>
               </FormControl>
               <InputLabel shrink>Pincode</InputLabel>
-              <TextField
-                fullWidth
-              />
+              <TextField fullWidth />
             </Grid>
           </Grid>
           <InputLabel shrink>Address</InputLabel>
-          <TextField
-            fullWidth
-          />
+          <TextField fullWidth />
           <InputLabel shrink>Video ID</InputLabel>
-          <TextField
-            fullWidth
-          />
+          <TextField fullWidth />
           <Divider sx={{ mt: 2, mb: 2 }} />
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="outlined" sx={{ mr: 2 }} onClick={handleBack}>
-              Back
-            </Button>
-            <Button variant="contained" color="primary" onClick={handleContinue}>
-              Save & Continue
-            </Button>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px",
+              gap: "10px",
+            }}
+          >
+            <ButtonComponent
+              label="Back"
+              size="large"
+              color="#011A1E"
+              labelColor="#fff"
+              onClick={handleBack}
+            />
+            <ButtonComponent
+              label="Save & Continue"
+              size="large"
+              color="#01A800"
+              labelColor="#fff"
+              onClick={handleContinue}
+            />
           </Box>
         </CardContent>
       </Box>

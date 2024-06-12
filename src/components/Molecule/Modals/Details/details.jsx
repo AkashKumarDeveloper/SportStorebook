@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import {
-  Modal,
-  Box,
-  Typography,
-  TextField,
-  MenuItem,
-} from "@mui/material";
-import ButtonComponent from "../../../atoms/Button/Button"; 
+import { Modal, Box, Typography, TextField, MenuItem } from "@mui/material";
+import ButtonComponent from "../../../atoms/Button/Button";
+import { borderRadius, height, maxHeight } from "@material-ui/system";
 
 const styles = {
   modalStyle: {
@@ -15,13 +10,16 @@ const styles = {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "590px",
-    height: "537px",
+    maxHeight: "560px",
+    height: "100%",
     bgcolor: "background.paper",
     boxShadow: 24,
-    p: 4,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    padding: 2,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    borderRadius: "2%",
+    overflow: "auto",
   },
   formControl: {
     margin: "10px 0px",
@@ -43,18 +41,19 @@ const styles = {
 const roles = ["Striker", "Midfielder", "Defender", "Goalkeeper"];
 const positions = ["Left Wing", "Right Wing", "Center", "Full Back"];
 
-const FootballDetailsModal = ({ open, handleClose,handleContinue }) => {
-  const handleBack = () => {
-    // Implement the back button functionality here
-    console.log("Back button clicked");
-  };
+const FootballDetailsModal = ({
+  open,
+  handleClose,
+  handleBack,
+  handleContinue,
+}) => {
   const handleSaveContinue = () => {
-    handleContinue()
+    handleContinue();
     console.log("Save & Continue button clicked");
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal sx={{ overflow: "auto" }} open={open} onClose={handleClose}>
       <Box sx={styles.modalStyle}>
         <div>
           <Typography variant="h6" component="h2" gutterBottom>

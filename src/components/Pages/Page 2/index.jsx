@@ -172,7 +172,7 @@ const SideNavbar = ({ theme, toggleTheme }) => {
           button
           className={`${classes.navItem} ${classes.logoutButton}`}
           component={Link}
-          to="/logout"
+          to="/"
         >
           <ListItemIcon className={classes.iconContainer}>
             <ExitToAppIcon />

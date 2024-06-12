@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   Button,
@@ -12,25 +12,33 @@ import {
   Divider,
   FormControl,
   Modal,
-} from '@mui/material';
+} from "@mui/material";
+import ButtonComponent from "../../../atoms/Button/Button";
 
 const labelStyle = {
-  marginBottom: '4px',
+  marginBottom: "4px",
 };
 
 const modalStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 800,
-  bgcolor: 'background.paper',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 622,
+  height: 529,
+  bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
+  p: 2,
   borderRadius: 2,
+  overflow: "auto",
 };
 
-const ParentInformationCard = ({ open, handleClose, handleBack, handleContinue }) => {
+const ParentInformationCard = ({
+  open,
+  handleClose,
+  handleBack,
+  handleContinue,
+}) => {
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle}>
@@ -41,16 +49,17 @@ const ParentInformationCard = ({ open, handleClose, handleBack, handleContinue }
           <Divider />
           <Grid container spacing={2} sx={{ mt: 2, mb: 4 }}>
             <Grid item xs={6}>
-              <InputLabel shrink sx={labelStyle}>First Name</InputLabel>
-              <TextField
-                fullWidth
-              />
-              <InputLabel shrink sx={labelStyle}>Email</InputLabel>
-              <TextField
-                fullWidth
-                type="email"
-              />
-              <InputLabel shrink sx={labelStyle}>Country</InputLabel>
+              <InputLabel shrink sx={labelStyle}>
+                First Name
+              </InputLabel>
+              <TextField fullWidth />
+              <InputLabel shrink sx={labelStyle}>
+                Email
+              </InputLabel>
+              <TextField fullWidth type="email" />
+              <InputLabel shrink sx={labelStyle}>
+                Country
+              </InputLabel>
               <FormControl fullWidth>
                 <Select>
                   <MenuItem value="usa">USA</MenuItem>
@@ -58,7 +67,9 @@ const ParentInformationCard = ({ open, handleClose, handleBack, handleContinue }
                   <MenuItem value="australia">Australia</MenuItem>
                 </Select>
               </FormControl>
-              <InputLabel shrink sx={labelStyle}>City</InputLabel>
+              <InputLabel shrink sx={labelStyle}>
+                City
+              </InputLabel>
               <FormControl fullWidth>
                 <Select>
                   <MenuItem value="ny">New York</MenuItem>
@@ -68,16 +79,17 @@ const ParentInformationCard = ({ open, handleClose, handleBack, handleContinue }
               </FormControl>
             </Grid>
             <Grid item xs={6}>
-              <InputLabel shrink sx={labelStyle}>Last Name</InputLabel>
-              <TextField
-                fullWidth
-              />
-              <InputLabel shrink sx={labelStyle}>Phone No</InputLabel>
-              <TextField
-                fullWidth
-                type="tel"
-              />
-              <InputLabel shrink sx={labelStyle}>State</InputLabel>
+              <InputLabel shrink sx={labelStyle}>
+                Last Name
+              </InputLabel>
+              <TextField fullWidth />
+              <InputLabel shrink sx={labelStyle}>
+                Phone No
+              </InputLabel>
+              <TextField fullWidth type="tel" />
+              <InputLabel shrink sx={labelStyle}>
+                State
+              </InputLabel>
               <FormControl fullWidth>
                 <Select>
                   <MenuItem value="ny">New York</MenuItem>
@@ -85,25 +97,39 @@ const ParentInformationCard = ({ open, handleClose, handleBack, handleContinue }
                   <MenuItem value="nsw">New South Wales</MenuItem>
                 </Select>
               </FormControl>
-              <InputLabel shrink sx={labelStyle}>Pincode</InputLabel>
-              <TextField
-                fullWidth
-                type="number"
-              />
+              <InputLabel shrink sx={labelStyle}>
+                Pincode
+              </InputLabel>
+              <TextField fullWidth type="number" />
             </Grid>
           </Grid>
-          <InputLabel shrink sx={labelStyle}>Address</InputLabel>
-          <TextField
-            fullWidth
-          />
+          <InputLabel shrink sx={labelStyle}>
+            Address
+          </InputLabel>
+          <TextField fullWidth />
           <Divider sx={{ mt: 2, mb: 2 }} />
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="outlined" sx={{ mr: 2 }} onClick={handleBack}>
-              Back
-            </Button>
-            <Button variant="contained" color="primary" onClick={handleContinue}>
-              Save & Continue
-            </Button>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px",
+              gap: "10px",
+            }}
+          >
+            <ButtonComponent
+            label="Back"
+            size="large"
+            color="#011A1E"
+            labelColor="#fff"
+            onClick={handleBack}
+          />
+          <ButtonComponent
+            label="Save & Continue"
+            size="large"
+            color="#01A800"
+            labelColor="#fff"
+            onClick={handleContinue}
+          />
           </Box>
         </CardContent>
       </Box>
