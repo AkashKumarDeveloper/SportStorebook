@@ -71,14 +71,16 @@ const MyComponent = () => {
   const classes = useStyles();
   const [step, setStep] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSport, setSelectedSport] = useState(null);
   const navigate = useNavigate();
-
 
   const handleNext = () => setStep((prevStep) => prevStep + 1);
   const handleBack = () => setStep((prevStep) => prevStep - 1);
+
   useEffect(() => {
     console.log("setup>>", step);
   }, [step]);
+
   const handleClose = () => {
     setStep(0);
     setIsModalOpen(false);
@@ -92,6 +94,11 @@ const MyComponent = () => {
   const handleSuccessClose = () => {
     setIsModalOpen(false);
     navigate("/dashboard");
+  };
+
+  const handleContinueFromSports = (sport) => {
+    setSelectedSport(sport);
+    handleNext();
   };
 
   return (
@@ -135,7 +142,7 @@ const MyComponent = () => {
             <SportsModal
               open={true}
               handleClose={handleClose}
-              handleContinue={handleNext}
+              handleContinue={handleContinueFromSports}
             />
           )}
           {step === 2 && (
@@ -144,6 +151,7 @@ const MyComponent = () => {
               handleClose={handleClose}
               handleBack={handleBack}
               handleContinue={handleNext}
+              selectedSport={selectedSport}
             />
           )}
           {step === 3 && (

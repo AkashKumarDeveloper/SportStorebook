@@ -60,9 +60,9 @@ const useStyles = makeStyles({
   },
   buttonContainer: {
     display: "flex",
-    justifyContent: "end",
-    marginTop: "auto",
+    justifyContent: "center",
     gap: "10px",
+    margin:"36px",
   },
 });
 
@@ -143,21 +143,14 @@ const SportsModal = ({ open, handleClose, handleBack, handleContinue }) => {
           onSelect={handleSelect}
         />
 
-        <Box sx={classes.buttonContainer}>
+        <Box className={classes.buttonContainer}>
           <ButtonComponent
-            label="Back"
-            size="large"
-            color="#011A1E"
-            labelColor="#fff"
-            onClick={handleBack}
-          />
-          <ButtonComponent
-            label="Save"
+            label="Save & Continue"
             size="large"
             color="#01A800"
             labelColor="#fff"
             onClick={() => {
-              if (selectedValue) handleContinue();
+              if (selectedValue) handleContinue(selectedValue);
             }}
             disabled={!selectedValue}
           />

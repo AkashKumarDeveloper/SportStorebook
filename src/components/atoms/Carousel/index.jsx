@@ -53,7 +53,7 @@ const CarouselComponent = () => {
   };
 
   return (
-    <Card sx={{ height: 268, width: 662 }}>
+    <Card sx={{ height: 268, width: 691, marginBottom:"10px" }}>
       <Container maxWidth="md" sx={{ marginTop: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
           <Typography variant="h6">Upcoming Matches</Typography>

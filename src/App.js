@@ -32,7 +32,7 @@ const App = () => {
 
   const themeObject = createTheme({
     palette: {
-      mode: theme,
+      type: theme,
     },
   });
 
@@ -59,6 +59,29 @@ const App = () => {
                 <Route path={path} element={element} />
               </Route>
             ))}
+            {/* <Route element={<WithoutNav />}>
+              <Route path="/" element={<MyComponent />} />
+            </Route>
+            <Route
+              element={<WithNav theme={theme} toggleTheme={toggleTheme} />}
+            >
+              <Route path="/dashboard" element={<Dashboardpage />} />
+            </Route>
+            <Route
+              element={<WithNav theme={theme} toggleTheme={toggleTheme} />}
+            >
+              <Route path="/assessment" element={<AssesmentPage />} />
+            </Route>
+            <Route
+              element={<WithNav theme={theme} toggleTheme={toggleTheme} />}
+            >
+              <Route path="/reports" element={<ReportsPage />} />
+            </Route>
+            <Route
+              element={<WithNav theme={theme} toggleTheme={toggleTheme} />}
+            >
+              <Route path="/stepForm" element={<MultiStepForm />} />
+            </Route> */}
           </Routes>
         </Router>
       </ThemeProvider>

@@ -6,7 +6,7 @@ import ButtonComponent from '../Button/Button';
 
 const CoachDetails = () => {
   return (
-    <Card sx={{ width: 271, height: 207 , marginTop:2 }}>
+    <Card sx={{ width: 340, height: 207 , marginTop:2 }}>
       <CardContent>
         <Box display="flex" alignItems="center">
           <img
