@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import WarningIcon from "@mui/icons-material/Warning";
+import { useNavigate } from "react-router-dom";
 
 const CardContainer = styled(Card)({
   width: "340px",
@@ -63,7 +64,9 @@ const CompleteProfileLink = styled(Box)({
 });
 
 const PersonalInfoCard = () => {
+  const navigate = useNavigate();
   const handleProfileClick = () => {
+    navigate("/stepForm");
     // logic to navigate to another page
     console.log("Navigating to complete profile page...");
   };

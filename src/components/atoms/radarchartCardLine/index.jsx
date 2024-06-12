@@ -1,20 +1,38 @@
-import React from 'react';
-import { Card, CardContent, Typography, Grid, Box, List, ListItem, ListItemText, styled } from '@mui/material';
-import RadarChart from '../Radar Chart/Radarchart';
-
+import React from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+  styled,
+} from "@mui/material";
+import RadarChart from "../Radar Chart/Radarchart";
 
 const ScoreBox = styled(Box)({
-  display: 'inline-block',
-  padding: '5px 10px',
-  borderRadius: '4px',
-  backgroundColor: '#ff9800',
-  color: '#fff',
-  fontWeight: 'bold',
-  marginTop: '10px',
+  display: "inline-block",
+  padding: "5px 10px",
+  borderRadius: "4px",
+  backgroundColor: "#ff9800",
+  color: "#fff",
+  fontWeight: "bold",
+  marginTop: "10px",
 });
 
-const defaultLabels = ['Arrow left', 'Mile', 'Yo yo test', 'Vertical Jump', 'Broad jump', '505 Agility', '40 Meter', 'Arrow right'];
-const data= [12, 19, 3, 5, 2]
+const defaultLabels = [
+  "Arrow left",
+  "Mile",
+  "Yo yo test",
+  "Vertical Jump",
+  "Broad jump",
+  "505 Agility",
+  "40 Meter",
+  "Arrow right",
+];
+const data = [12, 19, 3, 5, 2];
 
 const CustomCardWithRadar = () => {
   return (
@@ -22,8 +40,18 @@ const CustomCardWithRadar = () => {
       <CardContent>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
-            <Box border={1} borderColor="#e0e0e0" borderRadius="8px" width="550px" height="400px" >
-              <RadarChart labels={defaultLabels} data={[58, 78, 42, 58, 38, 60, 58, 30]} aspectRatio={2} />
+            <Box
+              border={1}
+              borderColor="#e0e0e0"
+              borderRadius="8px"
+              width="550px"
+              height="400px"
+            >
+              <RadarChart
+                labels={defaultLabels}
+                data={[58, 78, 42, 58, 38, 60, 58, 30]}
+                aspectRatio={2}
+              />
             </Box>
           </Grid>
 
@@ -32,7 +60,9 @@ const CustomCardWithRadar = () => {
               <Box display="flex" alignItems="center">
                 <Box ml={2}>
                   <Typography variant="h6">Physical Report</Typography>
-                  <Typography variant="subtitle1">Physical Assesment Overview</Typography>
+                  <Typography variant="subtitle1">
+                    Physical Assesment Overview
+                  </Typography>
                 </Box>
               </Box>
 

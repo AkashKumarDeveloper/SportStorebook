@@ -10,7 +10,7 @@ import Appy from "../../atoms/ComprehensiveCard/index";
 
 const ReportsPage = () => {
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box sx={{ width: "80vw", marginLeft: 30, padding: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={8}>
           <PlayerCard />

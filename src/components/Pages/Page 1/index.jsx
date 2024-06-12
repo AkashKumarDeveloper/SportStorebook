@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Signup from "../../Molecule/SignUp/SignUp";
@@ -70,12 +71,13 @@ const MyComponent = () => {
   const classes = useStyles();
   const [step, setStep] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleNext = () => setStep((prevStep) => prevStep + 1);
   const handleBack = () => setStep((prevStep) => prevStep - 1);
-  useEffect(()=>{
-    console.log("setup>>",step);
-  },[step])  
+  useEffect(() => {
+    console.log("setup>>", step);
+  }, [step]);
   const handleClose = () => {
     setStep(0);
     setIsModalOpen(false);
@@ -84,6 +86,11 @@ const MyComponent = () => {
   const handleSignupClick = () => {
     setIsModalOpen(true);
     setStep(0);
+  };
+
+  const handleSuccessClose = () => {
+    setIsModalOpen(false);
+    navigate("/");
   };
 
   return (
@@ -116,14 +123,65 @@ const MyComponent = () => {
       </div>
       {isModalOpen && (
         <>
-          {step === 0 && <SignupModal open={true} handleClose={handleClose} handleContinue={handleNext} />}
-          {step === 1 && <SportsModal open={true} handleClose={handleClose} handleContinue={handleNext} />}
-          {step === 2 && <FootballDetailsModal open={true} handleClose={handleClose} handleBack={handleBack} handleContinue={handleNext} />}
-          {step === 3 && <PersonalDetailsCard open={true} handleClose={handleClose} handleBack={handleBack} handleContinue={handleNext} />}
-          {step === 4 && <ParentInformationCard open={true} handleClose={handleClose} handleBack={handleBack} handleContinue={handleNext} />}
-          {step === 5 && <ParentInformationCardSupplemental open={true} handleClose={handleBack} handleContinue={handleNext} />}
-          {step === 6 && <AgreementDetailModal open={true} handleClose={handleBack} handleContinue={handleNext} handleBack={handleBack} />}
-          {step === 7 && <RegistrationSuccessModal open={true} handleClose={handleClose} />}
+          {step === 0 && (
+            <SignupModal
+              open={true}
+              handleClose={handleClose}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 1 && (
+            <SportsModal
+              open={true}
+              handleClose={handleClose}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 2 && (
+            <FootballDetailsModal
+              open={true}
+              handleClose={handleClose}
+              handleBack={handleBack}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 3 && (
+            <PersonalDetailsCard
+              open={true}
+              handleClose={handleClose}
+              handleBack={handleBack}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 4 && (
+            <ParentInformationCard
+              open={true}
+              handleClose={handleClose}
+              handleBack={handleBack}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 5 && (
+            <ParentInformationCardSupplemental
+              open={true}
+              handleClose={handleBack}
+              handleContinue={handleNext}
+            />
+          )}
+          {step === 6 && (
+            <AgreementDetailModal
+              open={true}
+              handleClose={handleBack}
+              handleContinue={handleNext}
+              handleBack={handleBack}
+            />
+          )}
+          {step === 7 && (
+            <RegistrationSuccessModal
+              open={true}
+              handleClose={handleSuccessClose}
+            />
+          )}
         </>
       )}
     </Grid>

@@ -110,50 +110,50 @@ const SideNavbar = ({ theme, toggleTheme }) => {
 
   return (
     <Box className={classes.root}>
-        <div>
-          <div className={classes.logo}>
-            <img src={logo} alt="Logo" className={classes.logoImage} />
-          </div>
-          <List>
-            <ListItem
-              button
-              className={`${classes.navItem} ${activeIndex === 0 ? classes.activeNavItem : ""}`}
-              onClick={() => handleListItemClick(0)}
-              component={Link}
-              to="/"
-            >
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-            <ListItem
-              button
-              className={`${classes.navItem} ${activeIndex === 1 ? classes.activeNavItem : ""}`}
-              onClick={() => handleListItemClick(1)}
-              component={Link}
-              to="/assessment"
-            >
-              <ListItemIcon>
-                <AssessmentIcon />
-              </ListItemIcon>
-              <ListItemText primary="Assessment" />
-            </ListItem>
-            <ListItem
-              button
-              className={`${classes.navItem} ${activeIndex === 2 ? classes.activeNavItem : ""}`}
-              onClick={() => handleListItemClick(2)}
-              component={Link}
-              to="/reports"
-            >
-              <ListItemIcon>
-                <ReportIcon />
-              </ListItemIcon>
-              <ListItemText primary="Reports" />
-            </ListItem>
-          </List>
+      <div>
+        <div className={classes.logo}>
+          <img src={logo} alt="Logo" className={classes.logoImage} />
         </div>
-        <div className={classes.bottomButtons}>
+        <List>
+          <ListItem
+            button
+            className={`${classes.navItem} ${activeIndex === 0 ? classes.activeNavItem : ""}`}
+            onClick={() => handleListItemClick(0)}
+            component={Link}
+            to="/dashboard"
+          >
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Dashboard" />
+          </ListItem>
+          <ListItem
+            button
+            className={`${classes.navItem} ${activeIndex === 1 ? classes.activeNavItem : ""}`}
+            onClick={() => handleListItemClick(1)}
+            component={Link}
+            to="/assessment"
+          >
+            <ListItemIcon>
+              <AssessmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Assessment" />
+          </ListItem>
+          <ListItem
+            button
+            className={`${classes.navItem} ${activeIndex === 2 ? classes.activeNavItem : ""}`}
+            onClick={() => handleListItemClick(2)}
+            component={Link}
+            to="/reports"
+          >
+            <ListItemIcon>
+              <ReportIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reports" />
+          </ListItem>
+        </List>
+      </div>
+      <div className={classes.bottomButtons}>
         <Divider className={classes.divider} />
         <div className={classes.toggleContainer}>
           <Typography variant="caption">View Mode</Typography>
@@ -163,7 +163,9 @@ const SideNavbar = ({ theme, toggleTheme }) => {
             name="themeToggle"
             color="primary"
           />
-          <Typography variant="caption">{isDarkMode ? "Dark" : "Light"}</Typography>
+          <Typography variant="caption">
+            {isDarkMode ? "Dark" : "Light"}
+          </Typography>
         </div>
         <Divider className={classes.divider} />
         <ListItem
@@ -175,7 +177,11 @@ const SideNavbar = ({ theme, toggleTheme }) => {
           <ListItemIcon className={classes.iconContainer}>
             <ExitToAppIcon />
           </ListItemIcon>
-          <ListItemText primary={<Typography className={classes.iconLabel}>Logout</Typography>} />
+          <ListItemText
+            primary={
+              <Typography className={classes.iconLabel}>Logout</Typography>
+            }
+          />
         </ListItem>
       </div>
     </Box>

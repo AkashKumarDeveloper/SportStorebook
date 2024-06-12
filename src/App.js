@@ -36,54 +36,63 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Step1 from "./components/Molecule/CompleteStepForm/Step 1/index.jsx";
 import MultiStepForm from "./components/Molecule/CompleteStepForm/multiStepform.jsx";
-// const useStyles = makeStyles(() => ({
-//   appContainer: {
-//     display: "flex",
-//     height: "100vh",
-//   },
-//   content: {
-//     flexGrow: 1,
-//     marginLeft: 230,
-//     overflow:"auto",
-//   },
-// }));
+import SideNavbarPage from "./components/Pages/complete page/index.jsx";
+import WithoutNav from "./components/Routes/WithOutNav.jsx";
+import WithNav from "./components/Routes/WithNav.jsx";
 
+const useStyles = makeStyles(() => ({
+  appContainer: {
+    display: "flex",
+    height: "100vh",
+  },
+  content: {
+    flexGrow: 1,
+    marginLeft: 230,
+    overflow: "auto",
+  },
+}));
 const App = () => {
-  // const classes = useStyles();
-  // const [theme, setTheme] = useState("light");
+  const classes = useStyles();
+  const [theme, setTheme] = useState("light");
 
-  // const themeObject = createTheme({
-  //   palette: {
-  //     type: theme,
-  //   },
-  // });
+  const themeObject = createTheme({
+    palette: {
+      type: theme,
+    },
+  });
 
-  // const toggleTheme = () => {
-  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // };
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
-  // return (
-  //   <ThemeProvider theme={themeObject}>
-  //     <CssBaseline />
-  //   <Router>
-  //     <div className={classes.appContainer}>
-  //       <SideNavbar theme={theme} toggleTheme={toggleTheme} />
-  //       <main className={classes.content}>
-  //         <Routes>
-  //           <Route path="/" element={<Dashboardpage />} />
-  //           <Route path="/assessment" element={<AssesmentPage />} />
-  //           <Route path="/reports" element={<ReportsPage />} />
-  //         </Routes>
-  //       </main>
-  //     </div>
-  //   </Router>
-  //   </ThemeProvider>
-  // );
   return (
-    <div>
-      <MultiStepForm />
-    </div>
+    <ThemeProvider theme={themeObject}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          <Route element={<WithoutNav />}>
+            <Route path="/" element={<MyComponent />} />
+          </Route>
+          <Route element={<WithNav theme={theme} toggleTheme={toggleTheme} />}>
+            <Route path="/dashboard" element={<Dashboardpage />} />
+          </Route>
+          <Route element={<WithNav theme={theme} toggleTheme={toggleTheme} />}>
+            <Route path="/assessment" element={<AssesmentPage />} />
+          </Route>
+          <Route element={<WithNav theme={theme} toggleTheme={toggleTheme} />}>
+            <Route path="/reports" element={<ReportsPage />} />
+          </Route>
+          <Route element={<WithNav theme={theme} toggleTheme={toggleTheme} />}>
+            <Route path="/stepForm" element={<MultiStepForm />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
+
+  // return(
+  //   <SideNavbarPage/>
+  // )
 };
 
 export default App;

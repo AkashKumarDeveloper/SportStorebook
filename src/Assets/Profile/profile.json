@@ -1,0 +1,50 @@
+{
+    "profile": {
+      "name": "Adam Smith",
+      "email": "adamsmith@gmail.com",
+      "phone": "+1-232545-5646",
+      "image": "path/to/profile-pic.jpg",
+      "completionPercentage": 40
+    },
+    "sportsDetail": {
+      "Sports Name": "Football",
+      "Primary Role": "Defensive",
+      "Other Positions": "DMF",
+      "Primary Position": "Centre back",
+      "Profile Video Link": "https://www.youtube.com/"
+    },
+    "personalDetail": {
+      "Joining Date": "10-May-2019",
+      "Gender": "Male",
+      "Date of Birth": "28-Jul-1999",
+      "Age": 25,
+      "Height": "5.11 ft",
+      "Weight": "75 kg",
+      "Country": "USA",
+      "State": "California",
+      "City": "Los Angeles",
+      "Pincode": "90001",
+      "Address": "#123, Street Road, California"
+    },
+    "primaryContact": {
+      "Name": "Mr. John Smith",
+      "Email": "johnsmith@gmail.com",
+      "Phone no": "+1-23454-54454",
+      "Country": "USA",
+      "State": "California",
+      "City": "Los Angeles",
+      "Pincode": "90001",
+      "Address": "#123, Street Road, California"
+    },
+    "supplementalContact": {
+      "Name": "Mr. John Smith",
+      "Email": "johnsmith@gmail.com",
+      "Phone no": "+1-23454-54454",
+      "Country": "USA",
+      "State": "California",
+      "City": "Los Angeles",
+      "Pincode": "90001",
+      "Address": "#123, Street Road, California"
+    }
+  }
+  
