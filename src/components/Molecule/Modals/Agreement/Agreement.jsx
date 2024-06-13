@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -9,21 +9,28 @@ import {
   FormControlLabel,
   Checkbox,
   Modal,
-} from '@mui/material';
+} from "@mui/material";
+import ButtonComponent from "../../../atoms/Button/Button";
 
 const modalStyle = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 800,
-  bgcolor: 'background.paper',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 700,
+  height: 434,
+  bgcolor: "background.paper",
   boxShadow: 24,
-  p: 4,
+  p: 2,
   borderRadius: 2,
 };
 
-const AgreementDetailModal = ({ open, handleClose, handleBack, handleContinue }) => {
+const AgreementDetailModal = ({
+  open,
+  handleClose,
+  handleBack,
+  handleContinue,
+}) => {
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const handleCheckboxChange = (event) => {
@@ -39,31 +46,49 @@ const AgreementDetailModal = ({ open, handleClose, handleBack, handleContinue })
           </Typography>
           <Divider />
           <Typography variant="body1" component="p" sx={{ mt: 2, mb: 4 }}>
-            I certify that all information provided in the player contract is accurate.
-            This includes my name, address, date of birth. I hereby submit a satisfactory
-            birth document that is acceptable to the national affiliate with which this team
-            intends to advance for post season tournament play. If requested by a league
-            officer, I will submit an original Authorized record of birth from the Bureau of
-            Vital Statistics from the state/city/country of my birth. I hereby submit a current
-            2023-2024 report card from current and enrolled school.
+            I certify that all information provided in the player contract is
+            accurate. This includes my name, address, date of birth. I hereby
+            submit a satisfactory birth document that is acceptable to the
+            national affiliate with which this team intends to advance for post
+            season tournament play. If requested by a league officer, I will
+            submit an original Authorized record of birth from the Bureau of
+            Vital Statistics from the state/city/country of my birth. I hereby
+            submit a current 2023-2024 report card from current and enrolled
+            school.
           </Typography>
           <FormControlLabel
-            control={<Checkbox checked={termsAccepted} onChange={handleCheckboxChange} />}
+            control={
+              <Checkbox
+                checked={termsAccepted}
+                onChange={handleCheckboxChange}
+              />
+            }
             label="I accept the terms & conditions"
           />
           <Divider sx={{ mt: 2, mb: 2 }} />
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="outlined" sx={{ mr: 2 }} onClick={handleBack}>
-              Back
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              disabled={!termsAccepted}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "20px",
+              gap: "10px",
+            }}
+          >
+            <ButtonComponent
+              label="Back"
+              size="large"
+              color="#011A1E"
+              labelColor="#fff"
+              onClick={handleBack}
+            />
+            <ButtonComponent
+              label="Save & Continue"
+              size="large"
+              color="#01A800"
+              labelColor="#fff"
               onClick={handleContinue}
-            >
-              Save & Continue
-            </Button>
+              disabled={!termsAccepted}
+            />
           </Box>
         </CardContent>
       </Box>

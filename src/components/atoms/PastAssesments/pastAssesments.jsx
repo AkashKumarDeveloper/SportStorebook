@@ -67,7 +67,7 @@ const PastAssessments = () => {
         return itemMonth === month ? itemMonth : "";
       }
       if (year) {
-        return itemYear == year ? itemYear : "";
+        return itemYear === year ? itemYear : "";
       }
 
     }

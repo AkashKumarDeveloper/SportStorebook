@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Avatar,
+  Badge,
   Box,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  IconButton,
   Divider,
   Switch,
-  Typography,
 } from "@material-ui/core";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import AssessmentIcon from "@material-ui/icons/Assessment";
@@ -95,6 +99,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SideNavbar = ({ theme, toggleTheme }) => {
+  console.log("toggleTheme>>>>>>>>>>>>>>", theme, toggleTheme);
   const classes = useStyles();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDarkMode, setIsDarkMode] = useState(theme === "dark");
@@ -172,7 +177,7 @@ const SideNavbar = ({ theme, toggleTheme }) => {
           button
           className={`${classes.navItem} ${classes.logoutButton}`}
           component={Link}
-          to="/logout"
+          to="/"
         >
           <ListItemIcon className={classes.iconContainer}>
             <ExitToAppIcon />

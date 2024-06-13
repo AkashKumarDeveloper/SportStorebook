@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, Box } from '@mui/material';
 import { styled } from '@mui/system';
 
 const TeamCardContainer = styled(Card)({
-  width: '296px',
+  width: '340px',
   height: '296px',
   padding: '4px',
   boxSizing: 'border-box',
