@@ -158,6 +158,7 @@ const PersonalDetailsCard = ({
                 />
                 <InputLabel shrink>Date of Birth</InputLabel>
                 <TextField
+                  sx={textFieldStyle}
                   type="date"
                   fullWidth
                   InputLabelProps={{ shrink: true }}
@@ -188,6 +189,7 @@ const PersonalDetailsCard = ({
                 <InputLabel shrink>Country</InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    sx={textFieldStyle}
                     name="country"
                     value={formik.values.country}
                     onChange={formik.handleChange}
@@ -205,6 +207,7 @@ const PersonalDetailsCard = ({
                 <InputLabel shrink>City</InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    sx={textFieldStyle}
                     name="city"
                     value={formik.values.city}
                     onChange={formik.handleChange}
@@ -245,6 +248,7 @@ const PersonalDetailsCard = ({
                         p: 1,
                         flexGrow: 1,
                         mr: 1,
+                        height: "38px",
                       }}
                     >
                       <Typography variant="body1" sx={{ mr: 1 }}>
@@ -261,6 +265,7 @@ const PersonalDetailsCard = ({
                         p: 1,
                         flexGrow: 1,
                         ml: 1,
+                        height: "38px",
                       }}
                     >
                       <Typography variant="body1" sx={{ mr: 1 }}>
@@ -275,6 +280,7 @@ const PersonalDetailsCard = ({
                 )}
                 <InputLabel shrink>Age</InputLabel>
                 <TextField
+                  sx={textFieldStyle}
                   type="number"
                   fullWidth
                   name="age"
@@ -287,6 +293,7 @@ const PersonalDetailsCard = ({
                 <InputLabel shrink>Weight</InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    sx={textFieldStyle}
                     name="weight"
                     value={formik.values.weight}
                     onChange={formik.handleChange}
@@ -304,6 +311,7 @@ const PersonalDetailsCard = ({
                 <InputLabel shrink>State</InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    sx={textFieldStyle}
                     name="state"
                     value={formik.values.state}
                     onChange={formik.handleChange}
@@ -318,6 +326,7 @@ const PersonalDetailsCard = ({
                 </FormControl>
                 <InputLabel shrink>Pincode</InputLabel>
                 <TextField
+                  sx={textFieldStyle}
                   fullWidth
                   name="pincode"
                   value={formik.values.pincode}
@@ -332,6 +341,7 @@ const PersonalDetailsCard = ({
             </Grid>
             <InputLabel shrink>Address</InputLabel>
             <TextField
+              sx={textFieldStyle}
               fullWidth
               name="address"
               value={formik.values.address}
@@ -342,6 +352,7 @@ const PersonalDetailsCard = ({
             />
             <InputLabel shrink>Video ID</InputLabel>
             <TextField
+              sx={textFieldStyle}
               fullWidth
               name="videoId"
               value={formik.values.videoId}

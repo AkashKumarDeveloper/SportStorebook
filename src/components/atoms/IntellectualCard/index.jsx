@@ -45,7 +45,7 @@ const CustomCardWithPolar = () => {
     <Card>
       <CardContent>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={4}>
             <Box display="flex" flexDirection="column" alignItems="flex-start">
               <Box display="flex" alignItems="center">
                 <Box ml={2}>
@@ -87,7 +87,7 @@ const CustomCardWithPolar = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={8}>
             <Box
               border={1}
               borderColor="#e0e0e0"

@@ -47,17 +47,19 @@ const App = () => {
         <Router>
           <Routes>
             {routes.map(({ path, element, nav }) => (
-              <Route
-                element={
-                  nav ? (
-                    <WithNav theme={theme} toggleTheme={toggleTheme} />
-                  ) : (
-                    <WithoutNav />
-                  )
-                }
-              >
-                <Route path={path} element={element} />
-              </Route>
+              <>
+                <Route
+                  element={
+                    nav ? (
+                      <WithNav theme={theme} toggleTheme={toggleTheme} />
+                    ) : (
+                      <WithoutNav />
+                    )
+                  }
+                >
+                  <Route path={path} element={element} />
+                </Route>
+              </>
             ))}
           </Routes>
         </Router>

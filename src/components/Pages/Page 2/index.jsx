@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundColor: theme.palette.background.paper,
     borderRight: `1px solid ${theme.palette.divider}`,
+    justifyContent:"space-between",
     height: "100vh",
     position: "fixed",
     [theme.breakpoints.down("md")]: {

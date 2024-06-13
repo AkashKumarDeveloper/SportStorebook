@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 import Signup from "../../Molecule/SignUp/SignUp";
 import ButtonComponent from "../../atoms/Button/Button";
@@ -13,12 +14,16 @@ import ParentInformationCardSupplemental from "../../Molecule/Modals/supplementa
 import AgreementDetailModal from "../../Molecule/Modals/Agreement/Agreement";
 import RegistrationSuccessModal from "../../Molecule/Modals/SucessfullRegistraion/Sucessregistration";
 
+
 const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
     display: "flex",
     flexDirection: "row",
     height: "100vh",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   firstGrid: {
     backgroundImage: `url(${require("../../../Assets/Images/left-login.png")})`,
@@ -29,12 +34,21 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 2,
     backgroundColor: "#EFF4F0",
     height: "150vh",
+    [theme.breakpoints.down("sm")]: {
+      height: "50vh",
+      backgroundSize: "cover",
+    },
   },
   logo: {
     position: "absolute",
     top: "47px",
     left: "72px",
     zIndex: 3,
+    [theme.breakpoints.down("sm")]: {
+      top: "20px",
+      left: "20px",
+      width: "50px",
+    },
   },
   secondGrid: {
     backgroundImage: `url(${require("../../../Assets/Images/green-bg.png")})`,
@@ -47,6 +61,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "end",
+    [theme.breakpoints.down("sm")]: {
+      height: "100vh",
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
   cardContainer: {
     position: "absolute",
@@ -56,6 +75,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     zIndex: 999,
     width: "300px",
+    [theme.breakpoints.down("sm")]: {
+      top: "85%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      width: "90%",
+    },
   },
   card: {
     backgroundColor: "transparent",
@@ -69,6 +94,8 @@ const useStyles = makeStyles((theme) => ({
 
 const MyComponent = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [step, setStep] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSport, setSelectedSport] = useState(null);
@@ -103,15 +130,15 @@ const MyComponent = () => {
 
   return (
     <Grid container className={classes.container}>
-      <Grid item xs={6} className={classes.firstGrid}>
+      <Grid item xs={12} md={6} className={classes.firstGrid}>
         <img
           src={require("../../../Assets/Images/logo.png")}
           alt="Logo"
           className={classes.logo}
         />
       </Grid>
-      <Grid item xs={6} className={classes.secondGrid}>
-        <div style={{ margin: "40px" }}>
+      <Grid item xs={12} md={6} className={classes.secondGrid}>
+        <div style={{ margin: isSmallScreen ? "20px" : "40px" }}>
           <ButtonComponent
             width="auto"
             label="Login"
@@ -198,3 +225,4 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+
