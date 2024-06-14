@@ -138,210 +138,243 @@ const PersonalDetailsCard = ({
             </Box>
             <Grid container spacing={2}>
               <Grid item xs={6}>
-                <InputLabel shrink>Joining Date</InputLabel>
-                <TextField
-                  sx={textFieldStyle}
-                  type="date"
-                  fullWidth
-                  InputLabelProps={{ shrink: true }}
-                  name="joiningDate"
-                  value={formik.values.joiningDate}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={
-                    formik.touched.joiningDate &&
-                    Boolean(formik.errors.joiningDate)
-                  }
-                  helperText={
-                    formik.touched.joiningDate && formik.errors.joiningDate
-                  }
-                />
-                <InputLabel shrink>Date of Birth</InputLabel>
-                <TextField
-                  sx={textFieldStyle}
-                  type="date"
-                  fullWidth
-                  InputLabelProps={{ shrink: true }}
-                  name="dob"
-                  value={formik.values.dob}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.dob && Boolean(formik.errors.dob)}
-                  helperText={formik.touched.dob && formik.errors.dob}
-                />
-                <InputLabel shrink>Height</InputLabel>
-                <FormControl fullWidth>
-                  <Select
-                    name="height"
-                    value={formik.values.height}
+                <Box mb={2}>
+                  <InputLabel shrink>Joining Date</InputLabel>
+                  <TextField
+                    sx={textFieldStyle}
+                    type="date"
+                    fullWidth
+                    InputLabelProps={{ shrink: true }}
+                    name="joiningDate"
+                    value={formik.values.joiningDate}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={
-                      formik.touched.height && Boolean(formik.errors.height)
+                      formik.touched.joiningDate &&
+                      Boolean(formik.errors.joiningDate)
                     }
-                    helpertext={formik.touched.height && formik.errors.height}
-                  >
-                    <MenuItem value={150}>150 cm</MenuItem>
-                    <MenuItem value={160}>160 cm</MenuItem>
-                    <MenuItem value={170}>170 cm</MenuItem>
-                  </Select>
-                </FormControl>
-                <InputLabel shrink>Country</InputLabel>
-                <FormControl fullWidth>
-                  <Select
+                    helperText={
+                      formik.touched.joiningDate && formik.errors.joiningDate
+                    }
+                  />
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>Date of Birth</InputLabel>
+                  <TextField
                     sx={textFieldStyle}
-                    name="country"
-                    value={formik.values.country}
+                    type="date"
+                    fullWidth
+                    InputLabelProps={{ shrink: true }}
+                    name="dob"
+                    value={formik.values.dob}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    error={
-                      formik.touched.country && Boolean(formik.errors.country)
-                    }
-                    helpertext={formik.touched.country && formik.errors.country}
-                  >
-                    <MenuItem value="usa">USA</MenuItem>
-                    <MenuItem value="india">India</MenuItem>
-                    <MenuItem value="australia">Australia</MenuItem>
-                  </Select>
-                </FormControl>
-                <InputLabel shrink>City</InputLabel>
-                <FormControl fullWidth>
-                  <Select
-                    sx={textFieldStyle}
-                    name="city"
-                    value={formik.values.city}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.city && Boolean(formik.errors.city)}
-                    helpertext={formik.touched.city && formik.errors.city}
-                  >
-                    <MenuItem value="ny">New York</MenuItem>
-                    <MenuItem value="delhi">Delhi</MenuItem>
-                    <MenuItem value="sydney">Sydney</MenuItem>
-                  </Select>
-                </FormControl>
+                    error={formik.touched.dob && Boolean(formik.errors.dob)}
+                    helperText={formik.touched.dob && formik.errors.dob}
+                  />
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>Height</InputLabel>
+                  <FormControl fullWidth>
+                    <Select
+                      name="height"
+                      size="small"
+                      value={formik.values.height}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.height && Boolean(formik.errors.height)
+                      }
+                      helpertext={formik.touched.height && formik.errors.height}
+                    >
+                      <MenuItem value={150}>150 cm</MenuItem>
+                      <MenuItem value={160}>160 cm</MenuItem>
+                      <MenuItem value={170}>170 cm</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>Country</InputLabel>
+                  <FormControl fullWidth>
+                    <Select
+                      sx={textFieldStyle}
+                      name="country"
+                      value={formik.values.country}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      size="small"
+                      error={
+                        formik.touched.country && Boolean(formik.errors.country)
+                      }
+                      helpertext={
+                        formik.touched.country && formik.errors.country
+                      }
+                    >
+                      <MenuItem value="usa">USA</MenuItem>
+                      <MenuItem value="india">India</MenuItem>
+                      <MenuItem value="australia">Australia</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>City</InputLabel>
+                  <FormControl fullWidth>
+                    <Select
+                      sx={textFieldStyle}
+                      size="small"
+                      name="city"
+                      value={formik.values.city}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.city && Boolean(formik.errors.city)}
+                      helpertext={formik.touched.city && formik.errors.city}
+                    >
+                      <MenuItem value="ny">New York</MenuItem>
+                      <MenuItem value="delhi">Delhi</MenuItem>
+                      <MenuItem value="sydney">Sydney</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
               </Grid>
               <Grid item xs={6}>
-                <InputLabel shrink>Gender</InputLabel>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    mb: 2,
-                  }}
-                >
-                  <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="gender"
-                    row
-                    value={formik.values.gender}
+                <Box mb={2}>
+                  <InputLabel shrink>Gender</InputLabel>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      mb: 2,
+                    }}
+                  >
+                    <RadioGroup
+                      aria-labelledby="demo-controlled-radio-buttons-group"
+                      name="gender"
+                      row
+                      value={formik.values.gender}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          border: "1px solid grey",
+                          borderRadius: 1,
+                          p: 1,
+                          flexGrow: 1,
+                          mr: 1,
+                          height: "38px",
+                        }}
+                      >
+                        <Typography variant="body1" sx={{ mr: 1 }}>
+                          Male
+                        </Typography>
+                        <Radio value="male" name="gender" />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          border: "1px solid grey",
+                          borderRadius: 1,
+                          p: 1,
+                          flexGrow: 1,
+                          ml: 1,
+                          height: "38px",
+                        }}
+                      >
+                        <Typography variant="body1" sx={{ mr: 1 }}>
+                          Female
+                        </Typography>
+                        <Radio value="female" name="gender" />
+                      </Box>
+                    </RadioGroup>
+                  </Box>
+                  {formik.touched.gender && formik.errors.gender && (
+                    <Typography color="error">
+                      {formik.errors.gender}
+                    </Typography>
+                  )}
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>Age</InputLabel>
+                  <TextField
+                    sx={textFieldStyle}
+                    type="number"
+                    fullWidth
+                    name="age"
+                    value={formik.values.age}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        border: "1px solid grey",
-                        borderRadius: 1,
-                        p: 1,
-                        flexGrow: 1,
-                        mr: 1,
-                        height: "38px",
-                      }}
-                    >
-                      <Typography variant="body1" sx={{ mr: 1 }}>
-                        Male
-                      </Typography>
-                      <Radio value="male" name="gender" />
-                    </Box>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        border: "1px solid grey",
-                        borderRadius: 1,
-                        p: 1,
-                        flexGrow: 1,
-                        ml: 1,
-                        height: "38px",
-                      }}
-                    >
-                      <Typography variant="body1" sx={{ mr: 1 }}>
-                        Female
-                      </Typography>
-                      <Radio value="female" name="gender" />
-                    </Box>
-                  </RadioGroup>
+                    error={formik.touched.age && Boolean(formik.errors.age)}
+                    helperText={formik.touched.age && formik.errors.age}
+                  />
                 </Box>
-                {formik.errors.gender && formik.touched.gender && (
-                  <Typography color="error">{formik.errors.gender}</Typography>
-                )}
-                <InputLabel shrink>Age</InputLabel>
-                <TextField
-                  sx={textFieldStyle}
-                  type="number"
-                  fullWidth
-                  name="age"
-                  value={formik.values.age}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.age && Boolean(formik.errors.age)}
-                  helperText={formik.touched.age && formik.errors.age}
-                />
-                <InputLabel shrink>Weight</InputLabel>
-                <FormControl fullWidth>
-                  <Select
+                <Box mb={2}>
+                  <InputLabel shrink>Weight</InputLabel>
+                  <FormControl fullWidth>
+                    <Select
+                      sx={textFieldStyle}
+                      size="small"
+                      name="weight"
+                      value={formik.values.weight}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.weight && Boolean(formik.errors.weight)
+                      }
+                      helpertext={formik.touched.weight && formik.errors.weight}
+                    >
+                      <MenuItem value={50}>50 kg</MenuItem>
+                      <MenuItem value={60}>60 kg</MenuItem>
+                      <MenuItem value={70}>70 kg</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>State</InputLabel>
+                  <FormControl fullWidth>
+                    <Select
+                      sx={textFieldStyle}
+                      size="small"
+                      name="state"
+                      value={formik.values.state}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched.state && Boolean(formik.errors.state)
+                      }
+                      helpertext={formik.touched.state && formik.errors.state}
+                    >
+                      <MenuItem value="ny">New York</MenuItem>
+                      <MenuItem value="delhi">Delhi</MenuItem>
+                      <MenuItem value="sydney">Sydney</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box mb={2}>
+                  <InputLabel shrink>Pincode</InputLabel>
+                  <TextField
                     sx={textFieldStyle}
-                    name="weight"
-                    value={formik.values.weight}
+                    type="text"
+                    fullWidth
+                    name="pincode"
+                    value={formik.values.pincode}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     error={
-                      formik.touched.weight && Boolean(formik.errors.weight)
+                      formik.touched.pincode && Boolean(formik.errors.pincode)
                     }
-                    helpertext={formik.touched.weight && formik.errors.weight}
-                  >
-                    <MenuItem value={50}>50 kg</MenuItem>
-                    <MenuItem value={60}>60 kg</MenuItem>
-                    <MenuItem value={70}>70 kg</MenuItem>
-                  </Select>
-                </FormControl>
-                <InputLabel shrink>State</InputLabel>
-                <FormControl fullWidth>
-                  <Select
-                    sx={textFieldStyle}
-                    name="state"
-                    value={formik.values.state}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.state && Boolean(formik.errors.state)}
-                    helpertext={formik.touched.state && formik.errors.state}
-                  >
-                    <MenuItem value="ny">New York</MenuItem>
-                    <MenuItem value="dl">Delhi</MenuItem>
-                    <MenuItem value="nsw">New South Wales</MenuItem>
-                  </Select>
-                </FormControl>
-                <InputLabel shrink>Pincode</InputLabel>
-                <TextField
-                  sx={textFieldStyle}
-                  fullWidth
-                  name="pincode"
-                  value={formik.values.pincode}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={
-                    formik.touched.pincode && Boolean(formik.errors.pincode)
-                  }
-                  helperText={formik.touched.pincode && formik.errors.pincode}
-                />
+                    helperText={formik.touched.pincode && formik.errors.pincode}
+                  />
+                </Box>
               </Grid>
             </Grid>
             <InputLabel shrink>Address</InputLabel>
             <TextField
               sx={textFieldStyle}
+              type="text"
               fullWidth
               name="address"
               value={formik.values.address}
@@ -353,6 +386,7 @@ const PersonalDetailsCard = ({
             <InputLabel shrink>Video ID</InputLabel>
             <TextField
               sx={textFieldStyle}
+              type="text"
               fullWidth
               name="videoId"
               value={formik.values.videoId}

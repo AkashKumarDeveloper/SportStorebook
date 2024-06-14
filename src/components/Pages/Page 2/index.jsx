@@ -21,7 +21,7 @@ import ReportIcon from "@material-ui/icons/Report";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
-import logo from "../../../Assets/Images/logo.png"; // Adjust the path to your logo image
+import logo from "../../../Assets/Images/logo.png"; 
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   logoImage: {
-    width: "150px", // Adjust the size as needed
+    width: "150px",
     height: "auto",
   },
   activeNavItem: {
@@ -60,12 +60,12 @@ const useStyles = makeStyles((theme) => ({
     "& svg": {
       color: "white",
     },
-    // Adding border radius only to the left side
-    borderRadius: "50% 0 0 50%",
+    borderRadius: "30px 0 0 30px",
+    
   },
   navItem: {
     "&:hover": {
-      backgroundColor: "rgba(0, 0, 0, 0.08)",
+      backgroundColor: "#EA781C",
     },
   },
   bottomButtons: {

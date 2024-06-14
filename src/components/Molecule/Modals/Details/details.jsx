@@ -113,6 +113,7 @@ const FootballDetailsModal = ({
               <TextField
                 select
                 // label="Primary Role"
+                size="small"
                 name="primaryRole"
                 placeholder="Primary Role"
                 value={formik.values.primaryRole}

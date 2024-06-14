@@ -95,6 +95,7 @@ const ParentInformationCard = ({
                   First Name
                 </InputLabel>
                 <TextField
+                  size="small"
                   fullWidth
                   name="firstName"
                   value={formik.values.firstName}
@@ -111,6 +112,7 @@ const ParentInformationCard = ({
                   Email
                 </InputLabel>
                 <TextField
+                  size="small"
                   fullWidth
                   type="email"
                   name="email"
@@ -125,6 +127,7 @@ const ParentInformationCard = ({
                 </InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    size="small"
                     fullWidth
                     name="country"
                     value={formik.values.country}
@@ -145,6 +148,7 @@ const ParentInformationCard = ({
                 </InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    size="small"
                     fullWidth
                     name="city"
                     value={formik.values.city}
@@ -164,6 +168,7 @@ const ParentInformationCard = ({
                   Last Name
                 </InputLabel>
                 <TextField
+                  size="small"
                   fullWidth
                   name="lastName"
                   value={formik.values.lastName}
@@ -178,6 +183,7 @@ const ParentInformationCard = ({
                   Phone No
                 </InputLabel>
                 <TextField
+                  size="small"
                   fullWidth
                   name="phoneNo"
                   value={formik.values.phoneNo}
@@ -193,6 +199,7 @@ const ParentInformationCard = ({
                 </InputLabel>
                 <FormControl fullWidth>
                   <Select
+                    size="small"
                     fullWidth
                     name="state"
                     value={formik.values.state}
@@ -210,6 +217,7 @@ const ParentInformationCard = ({
                   Pincode
                 </InputLabel>
                 <TextField
+                  size="small"
                   fullWidth
                   name="pincode"
                   value={formik.values.pincode}
@@ -226,6 +234,7 @@ const ParentInformationCard = ({
               Address
             </InputLabel>
             <TextField
+              size="small"
               fullWidth
               name="address"
               value={formik.values.address}
